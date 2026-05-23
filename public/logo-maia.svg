@@ -1,0 +1,37 @@
+<svg width="500" height="250" viewBox="0 0 500 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- M - Teal/Verde acqua con effetto pennellata -->
+  <path d="M30 200 L35 60 L45 70 L80 140 L115 70 L125 60 L130 200 L110 200 L105 100 L80 155 L55 100 L50 200 Z" 
+        fill="#237478" opacity="0.95"/>
+  <path d="M32 195 L34 62 L43 72 L80 138 L117 72 L126 62 L128 195" 
+        stroke="#1a5a5d" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.7"/>
+  
+  <!-- Prima A - Bordeaux/Rosso scuro con effetto pennellata -->
+  <path d="M160 200 L185 60 L210 60 L235 200 L215 200 L210 160 L185 160 L180 200 Z M190 140 L205 140 L197.5 90 Z" 
+        fill="#821d30" opacity="0.95"/>
+  <path d="M162 198 L186 62 L209 62 L233 198" 
+        stroke="#5a1420" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.7"/>
+  <path d="M190 140 L205 140" 
+        stroke="#5a1420" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+  
+  <!-- I - Beige/Sabbia con effetto pennellata -->
+  <path d="M265 200 L265 60 L295 60 L295 200 Z" 
+        fill="#dcb38c" opacity="0.95"/>
+  <path d="M267 198 L267 62 L293 62 L293 198" 
+        stroke="#c9a07a" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.7"/>
+  
+  <!-- Seconda A - Arancione con effetto pennellata -->
+  <path d="M325 200 L350 60 L375 60 L400 200 L380 200 L375 160 L350 160 L345 200 Z M355 140 L370 140 L362.5 90 Z" 
+        fill="#ce5b20" opacity="0.95"/>
+  <path d="M327 198 L351 62 L374 62 L398 198" 
+        stroke="#a84818" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.7"/>
+  <path d="M355 140 L370 140" 
+        stroke="#a84818" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+  
+  <!-- Texture pennellate per dare effetto artistico -->
+  <defs>
+    <filter id="roughEdges">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>

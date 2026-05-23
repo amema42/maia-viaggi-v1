@@ -1,0 +1,347 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.cdnfonts.com/css/now");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+==========================================================================
+【AI HANDOVER NOTE】
+1. DESIGN PHILOSOPHY:
+   - Pop Maximalism meets Interactive Storytelling: questo design abbraccia l'estetica dopamina con colori saturi e vibranti, creando un'esperienza visivamente stimolante che riflette l'eccitazione del viaggio
+   - Y2K Nostalgia + Modern Interactivity: elementi nostalgici (biglietto aereo, passaporto fisico) reinterpretati con interazioni moderne e fluide
+   - Archetype-Driven Color System: ogni consulente ha un colore distintivo che diventa parte integrante dell'identità visiva, creando una narrazione cromatica coerente
+   - Playful & Engaging: interfaccia non lineare che incoraggia l'esplorazione attraverso elementi cliccabili e animazioni sorprendenti
+
+2. TYPOGRAPHY:
+   - Outfit (Sans principale): font geometrico moderno con personalità friendly, perfetto per un brand giovane e accessibile. Le sue forme arrotondate comunicano apertura e avventura
+   - Space Grotesk (Display/Titoli): carattere distintivo con forte presenza visiva, ideale per headlines e call-to-action che devono catturare l'attenzione
+   - JetBrains Mono: utilizzato per dettagli tecnici come codici volo, date, numeri di passaporto, aggiungendo un tocco di autenticità ai documenti di viaggio simulati
+
+3. COLOR SYSTEM:
+   - Brand Palette basata sui 4 Archetipi:
+     * La Chic (#821d30 → oklch(0.38 0.15 15)): rosso bordeaux sofisticato, mappato a --primary per azioni principali
+     * L'Avventuroso (#ce5b20 → oklch(0.62 0.16 35)): arancione energico, usato per --accent e elementi interattivi
+     * La Stratega (#dcb38c → oklch(0.78 0.08 65)): beige/oro elegante, per --secondary e superfici premium
+     * Il Mentore (#237478 → oklch(0.48 0.10 195)): verde acqua rassicurante, per elementi di supporto e guidance
+   - High Contrast & Saturation: palette ad alto contrasto per massimizzare l'impatto visivo e l'energia dopamina
+   - Semantic Colors: success (verde viaggio confermato), warning (arancione attenzione date), destructive (rosso cancellazione)
+   - Chart Colors: utilizzano i 4 colori archetipi per visualizzazioni dati coerenti con il brand
+
+4. USAGE GUIDE:
+   - Layout Type: Full-width immersive con sezioni a schermo intero per biglietto aereo, mappa mondo, passaporto
+   - Interactive Elements:
+     * Biglietto aereo: form compilabile con animazioni di scrittura, transizioni fluide tra campi
+     * Mappa mondo: hover states con glow effect nei colori archetipi, click per reveal destinazioni
+     * Passaporto: animazione page-flip 3D, foto team con overlay colore archetype
+   - Visual Effects:
+     * Gradient overlays con i colori archetipi per creare profondità
+     * Subtle shadows e rim-light per dare fisicità agli elementi interattivi
+     * Micro-animations su hover per feedback immediato
+   - Accessibility: nonostante i colori vivaci, mantenere contrasto WCAG AA tra testo e background
+   - Mobile-First: elementi interattivi ottimizzati per touch, swipe gestures per passaporto e mappa
+==========================================================================
+*/
+
+:root {
+  /* Typography */
+  --font-sans: Outfit, ui-sans-serif, system-ui, sans-serif;
+  --font-heading: 'Now', sans-serif;
+  --font-mono: JetBrains Mono, ui-monospace, monospace;
+  
+  /* Radius */
+  --radius: 1rem;
+
+  /* Core UI Tokens */
+  --background: oklch(0.98 0.01 85);
+  --foreground: oklch(0.15 0.02 15);
+  --card: oklch(0.99 0.005 85);
+  --card-foreground: oklch(0.15 0.02 15);
+  --popover: oklch(0.99 0.005 85);
+  --popover-foreground: oklch(0.15 0.02 15);
+  --primary: oklch(0.38 0.15 15);
+  --primary-foreground: oklch(0.98 0.01 15);
+  --secondary: oklch(0.78 0.08 65);
+  --secondary-foreground: oklch(0.20 0.02 65);
+  --muted: oklch(0.94 0.02 85);
+  --muted-foreground: oklch(0.48 0.03 15);
+  --accent: oklch(0.62 0.16 35);
+  --accent-foreground: oklch(0.98 0.01 35);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0.01 25);
+  --border: oklch(0.88 0.02 85);
+  --input: oklch(0.88 0.02 85);
+  --ring: oklch(0.38 0.15 15);
+  
+  /* Chart Tokens */
+  --chart-1: oklch(0.38 0.15 15);
+  --chart-2: oklch(0.62 0.16 35);
+  --chart-3: oklch(0.78 0.08 65);
+  --chart-4: oklch(0.48 0.10 195);
+  --chart-5: oklch(0.55 0.18 285);
+  
+  /* Sidebar Tokens */
+  --sidebar: oklch(0.99 0.005 85);
+  --sidebar-foreground: oklch(0.15 0.02 15);
+  --sidebar-primary: oklch(0.38 0.15 15);
+  --sidebar-primary-foreground: oklch(0.98 0.01 15);
+  --sidebar-accent: oklch(0.62 0.16 35);
+  --sidebar-accent-foreground: oklch(0.98 0.01 35);
+  --sidebar-border: oklch(0.88 0.02 85);
+  --sidebar-ring: oklch(0.38 0.15 15);
+}
+
+.dark {
+  --background: oklch(0.12 0.02 15);
+  --foreground: oklch(0.95 0.01 85);
+  --card: oklch(0.15 0.02 15);
+  --card-foreground: oklch(0.95 0.01 85);
+  --popover: oklch(0.15 0.02 15);
+  --popover-foreground: oklch(0.95 0.01 85);
+  --primary: oklch(0.52 0.18 15);
+  --primary-foreground: oklch(0.98 0.01 15);
+  --secondary: oklch(0.68 0.10 65);
+  --secondary-foreground: oklch(0.12 0.02 65);
+  --muted: oklch(0.22 0.02 15);
+  --muted-foreground: oklch(0.65 0.02 85);
+  --accent: oklch(0.68 0.18 35);
+  --accent-foreground: oklch(0.12 0.02 35);
+  --destructive: oklch(0.60 0.24 25);
+  --destructive-foreground: oklch(0.98 0.01 25);
+  --border: oklch(0.25 0.02 15);
+  --input: oklch(0.25 0.02 15);
+  --ring: oklch(0.52 0.18 15);
+  
+  /* Chart Tokens */
+  --chart-1: oklch(0.52 0.18 15);
+  --chart-2: oklch(0.68 0.18 35);
+  --chart-3: oklch(0.68 0.10 65);
+  --chart-4: oklch(0.58 0.12 195);
+  --chart-5: oklch(0.65 0.20 285);
+  
+  /* Sidebar Tokens */
+  --sidebar: oklch(0.15 0.02 15);
+  --sidebar-foreground: oklch(0.95 0.01 85);
+  --sidebar-primary: oklch(0.52 0.18 15);
+  --sidebar-primary-foreground: oklch(0.98 0.01 15);
+  --sidebar-accent: oklch(0.68 0.18 35);
+  --sidebar-accent-foreground: oklch(0.12 0.02 35);
+  --sidebar-border: oklch(0.25 0.02 15);
+  --sidebar-ring: oklch(0.52 0.18 15);
+}
+
+@theme inline {
+  /* Shadcn Core Mapping */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Charts Mapping */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Sidebar Mapping */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Typography */
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-heading);
+  --font-mono: var(--font-mono);
+
+  /* Radius */
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply scroll-smooth antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans min-h-screen;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  code, pre {
+    @apply font-mono;
+  }
+
+  /* Animazioni blob */
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
+
+  .animation-delay-3000 {
+    animation-delay: 3s;
+  }
+
+  /* Animazione float per nuvole e icone */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Animazione bounce lenta */
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 3s ease-in-out infinite;
+  }
+
+  /* Animazione spin lenta */
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+
+  /* Animazione sway per palme */
+  @keyframes sway {
+    0%, 100% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+  }
+
+  .animate-sway {
+    animation: sway 4s ease-in-out infinite;
+  }
+
+  /* Animazione twinkle per stelle */
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+  .animate-twinkle {
+    animation: twinkle 2s ease-in-out infinite;
+  }
+
+  /* Animazione gradiente */
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 15s ease infinite;
+  }
+
+  ::selection {
+    @apply bg-primary/20 text-primary;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/40;
+  }
+}
