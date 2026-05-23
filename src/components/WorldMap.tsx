@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, MapPin, Heart } from 'lucide-react';
+import { X, MapPin, Heart, Globe, Landmark, Sun, Flower2, Building, Star, Map, Check } from 'lucide-react';
 import { DESTINATIONS, ARCHETYPES } from '@/lib/index';
 import { IMAGES } from '@/assets/images';
 import { Button } from '@/components/ui/button';
@@ -13,16 +13,16 @@ interface WorldMapProps {
 }
 
 const AREA_FILTERS = [
-  { id: 'all', label: '🌍 Tutte' },
-  { id: 'europa', label: '🏰 Europa' },
-  { id: 'africa', label: '🌅 Africa' },
-  { id: 'asia', label: '🌸 Asia' },
-  { id: 'americhe', label: '🗽 Americhe' },
-  { id: 'medioriente', label: '🕌 Medio Oriente' },
+  { id: 'all', label: 'Tutte', icon: Globe },
+  { id: 'europa', label: 'Europa', icon: Landmark },
+  { id: 'africa', label: 'Africa', icon: Sun },
+  { id: 'asia', label: 'Asia', icon: Flower2 },
+  { id: 'americhe', label: 'Americhe', icon: Building },
+  { id: 'medioriente', label: 'Medio Oriente', icon: Star },
 ];
 
 const getArea = (dest: typeof DESTINATIONS[0]) => {
-  const europeCountries = ['Italia', 'Francia', 'Austria', 'Ungheria', 'Romania', 'Croazia', 'Paesi Bassi', 'Grecia', 'Portogallo', 'Spagna'];
+  const europeCountries = ['Italia', 'Francia', 'Austria', 'Ungheria', 'Romania', 'Croazia', 'Paesi Bassi', 'Grecia', 'Portogallo', 'Spagna', 'Regno Unito', 'Irlanda', 'Repubblica Ceca'];
   const africaCountries = ['Marocco', 'Egitto', 'Tanzania', 'Kenya', 'Tunisia', 'Namibia'];
   const asiaCountries = ['Tailandia', 'Giappone', 'Indonesia', 'Cina', 'India', 'Vietnam', 'Cambogia'];
   const americheCountries = ['Stati Uniti', 'Messico', 'Brasile', 'Argentina', 'Perù', 'Cuba'];
@@ -64,7 +64,7 @@ export function WorldMap({ visible, filterTags = [] }: WorldMapProps) {
 
   const buildWhatsAppUrl = (dest: typeof DESTINATIONS[0]) => {
     const highlight = dest.highlights && dest.highlights.length > 0 ? dest.highlights[0] : '';
-    const message = `Ciao MAIA Viaggi! 🌍 Sono interessato/a al viaggio a *${dest.name}* (${dest.country})${highlight ? `, in particolare: ${highlight}` : ''}. Potete darmi più informazioni e un preventivo?`;
+    const message = `Ciao MAIA Viaggi! Sono interessato/a al viaggio a *${dest.name}* (${dest.country})${highlight ? `, in particolare: ${highlight}` : ''}. Potete darmi più informazioni e un preventivo?`;
     return `https://wa.me/390640089596?text=${encodeURIComponent(message)}`;
   };
 
@@ -83,19 +83,23 @@ export function WorldMap({ visible, filterTags = [] }: WorldMapProps) {
         transition={{ ...springPresets.gentle, delay: 0.1 }}
         className="flex flex-wrap justify-center gap-2 mb-8"
       >
-        {AREA_FILTERS.map((area) => (
-          <button
-            key={area.id}
-            onClick={() => setActiveArea(area.id)}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all border-2 ${
-              activeArea === area.id
-                ? 'bg-[#821d30] text-white border-[#821d30] shadow-lg scale-105'
-                : 'bg-white/80 text-gray-700 border-gray-200 hover:border-[#821d30] hover:text-[#821d30]'
-            }`}
-          >
-            {area.label}
-          </button>
-        ))}
+        {AREA_FILTERS.map((area) => {
+          const Icon = area.icon;
+          return (
+            <button
+              key={area.id}
+              onClick={() => setActiveArea(area.id)}
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all border ${
+                activeArea === area.id
+                  ? 'bg-[#1A1A1A] text-[#F5EFE1] border-[#1A1A1A]'
+                  : 'bg-white/80 text-[#595142] border-[#D8CDB5] hover:border-[#821d30] hover:text-[#821d30]'
+              }`}
+            >
+              <Icon className="w-4 h-4" />
+              {area.label}
+            </button>
+          );
+        })}
       </motion.div>
 
       {/* Griglia card destinazioni */}
@@ -133,12 +137,13 @@ export function WorldMap({ visible, filterTags = [] }: WorldMapProps) {
 
                   {/* Badge archetype */}
                   <div
-                    className="absolute top-3 left-3 px-2 py-0.5 rounded-full text-[10px] font-bold text-white"
-                    style={{ backgroundColor: color }}
+                    className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium text-[#1A1A1A] bg-[#F5EFE1]/92 backdrop-blur-sm"
                   >
-                    {dest.archetype === 'dreamer' ? '✨ Sognatore' :
-                     dest.archetype === 'chic' ? '💎 Chic' :
-                     dest.archetype === 'strategist' ? '🎯 Stratega' : '🔥 Avventura'}
+                    <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
+                    {dest.archetype === 'dreamer' ? 'il sognatore' :
+                     dest.archetype === 'chic' ? 'la chic' :
+                     dest.archetype === 'strategist' ? 'la stratega' :
+                     dest.archetype === 'neutral' ? 'neutra' : "l'avventuroso"}
                   </div>
 
                   {/* Nome + paese sull'immagine */}
@@ -190,7 +195,7 @@ export function WorldMap({ visible, filterTags = [] }: WorldMapProps) {
           animate={{ opacity: 1 }}
           className="text-center py-16 text-gray-400"
         >
-          <p className="text-5xl mb-4">🗺️</p>
+          <Map className="w-12 h-12 mx-auto mb-4 text-[#D8CDB5]" />
           <p className="text-lg font-medium">Nessuna destinazione trovata</p>
           <button
             onClick={() => setActiveArea('all')}
@@ -281,12 +286,9 @@ export function WorldMap({ visible, filterTags = [] }: WorldMapProps) {
                   href={buildWhatsAppUrl(destination)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full py-3 rounded-full font-bold text-white text-base text-center transition-transform hover:scale-105 active:scale-95"
-                  style={{
-                    background: `linear-gradient(135deg, ${getArchetypeColor(destination.archetype)}, #821d30)`
-                  }}
+                  className="block w-full py-3 rounded-full font-medium text-white text-base text-center transition-all hover:shadow-lg hover:-translate-y-px bg-[#821D30]"
                 >
-                  💬 Voglio partire per {destination.name}! ✈️
+                  Scrivici per {destination.name} →
                 </a>
               </div>
             </motion.div>

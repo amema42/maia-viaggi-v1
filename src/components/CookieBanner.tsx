@@ -46,8 +46,8 @@ export function CookieBanner() {
               <div className="flex flex-col md:flex-row gap-6 items-start md:items-center">
                 {/* Testo */}
                 <div className="flex-1 pr-8">
-                  <h3 className="text-xl md:text-2xl font-bold text-primary mb-2">
-                    🍪 Utilizziamo i Cookie
+                  <h3 className="text-xl md:text-2xl font-heading font-medium text-primary mb-2">
+                    Cookie tecnici, solo.
                   </h3>
                   <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                     Utilizziamo cookie tecnici necessari per il funzionamento del sito. 
@@ -70,9 +70,9 @@ export function CookieBanner() {
                   </Button>
                   <Button
                     onClick={acceptCookies}
-                    className="w-full sm:w-auto bg-gradient-to-r from-[#ce5b20] to-[#821d30] hover:opacity-90"
+                    className="w-full sm:w-auto bg-[#821D30] hover:bg-[#6E182A] text-white"
                   >
-                    Accetta
+                    Va bene
                   </Button>
                 </div>
               </div>

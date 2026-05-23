@@ -67,17 +67,16 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
             `
           }}
         >
-          {/* HEADER - Stile compagnia aerea */}
-          <div className="bg-gradient-to-r from-[#821d30] via-[#ce5b20] to-[#237478] px-4 md:px-8 py-4 md:py-5 flex flex-col md:flex-row items-center md:justify-between gap-3 md:gap-0">
+          <div className="bg-[#821d30] px-4 md:px-8 py-4 md:py-5 flex flex-col md:flex-row items-center md:justify-between gap-3 md:gap-0">
             <div className="flex items-center gap-3 md:gap-4 w-full md:w-auto">
               <div className="flex-1 md:flex-initial">
-                <div className="text-white/80 text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-bold">Boarding Pass</div>
-                <div className="text-white text-lg md:text-2xl font-black tracking-tight leading-tight">CREA IL TUO VIAGGIO PERFETTO</div>
+                <div className="text-white/80 text-xs font-heading italic">il tuo biglietto</div>
+                <div className="text-white text-lg md:text-2xl font-heading font-medium tracking-tight leading-tight">Crea il tuo viaggio.</div>
               </div>
             </div>
             <div className="text-center md:text-right w-full md:w-auto">
-              <div className="text-white/70 text-[9px] uppercase tracking-wider">Flight</div>
-              <div className="text-white font-mono text-base md:text-lg font-black">VGG2026</div>
+              <div className="text-white/70 font-mono text-xs">ed. primavera</div>
+              <div className="text-white font-mono text-sm font-medium">n. 001</div>
             </div>
           </div>
 
@@ -86,7 +85,7 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
             {/* Riga 1: Periodo e Passeggeri */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div>
-                <Label className="text-[9px] md:text-[10px] uppercase tracking-[0.25em] text-zinc-500 font-bold mb-2 block">
+                <Label className="text-xs text-[#595142] font-medium mb-2 block">
                   Periodo di Viaggio
                 </Label>
                 <Select value={travelMonth} onValueChange={setTravelMonth}>
@@ -112,7 +111,7 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
 
               <div className="grid grid-cols-2 gap-3 md:gap-4">
                 <div>
-                  <Label className="text-[9px] md:text-[10px] uppercase tracking-[0.25em] text-zinc-500 font-bold mb-2 block">
+                  <Label className="text-xs text-[#595142] font-medium mb-2 block">
                     Passeggeri
                   </Label>
                   <Input
@@ -125,7 +124,7 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
                   />
                 </div>
                 <div>
-                  <Label className="text-[9px] md:text-[10px] uppercase tracking-[0.25em] text-zinc-500 font-bold mb-2 block">
+                  <Label className="text-xs text-[#595142] font-medium mb-2 block">
                     Tipo
                   </Label>
                   <Select
@@ -149,7 +148,7 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
 
             {/* Tipologie di viaggio */}
             <div>
-              <Label className="text-[9px] md:text-[10px] uppercase tracking-[0.25em] text-zinc-500 font-bold mb-2 md:mb-3 block">
+              <Label className="text-xs text-[#595142] font-medium mb-2 md:mb-3 block">
                 Tipologia Viaggio (seleziona tutto ciò che ti interessa)
               </Label>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
@@ -162,8 +161,8 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
                     whileTap={{ scale: 0.95 }}
                     className={`relative px-3 md:px-4 py-2 md:py-3 rounded-xl text-xs md:text-sm font-bold transition-all border-2 shadow-md ${
                       travelStyles.includes(style)
-                        ? 'bg-gradient-to-r from-[#821d30] to-[#ce5b20] text-white border-transparent shadow-lg'
-                        : 'bg-white text-zinc-700 border-zinc-300 hover:border-[#ce5b20]'
+                        ? 'bg-[#1A1A1A] text-[#F5EFE1] border-transparent'
+                        : 'bg-white text-[#595142] border-[#D8CDB5] hover:border-[#821d30] hover:text-[#821d30]'
                     }`}
                   >
                     {travelStyles.includes(style) && (
@@ -185,36 +184,15 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
             </div>
           </div>
 
-          {/* FOOTER - Barcode e pulsante */}
-          <div className="bg-zinc-100 dark:bg-zinc-200 px-4 md:px-8 py-4 md:py-6 flex flex-col md:flex-row items-center gap-4 md:gap-0 md:justify-between border-t-2 border-dashed border-zinc-300">
-            <div className="flex items-center gap-3 md:gap-6 w-full md:w-auto justify-center md:justify-start">
-              {/* Barcode simulato */}
-              <div className="flex gap-[2px] h-12 md:h-16 items-end">
-                {[4,2,3,4,2,4,3,2,4,3,4,2,3,4,2,4,3,2,4,3,4,2,3,4,2,4,3,2,4,3].map((height, i) => (
-                  <div
-                    key={i}
-                    className="bg-black"
-                    style={{
-                      width: i % 5 === 0 ? '2.5px' : '1.5px',
-                      height: `${height * 20}%`
-                    }}
-                  />
-                ))}
-              </div>
-              <div className="text-[9px] md:text-[10px] font-mono text-zinc-500 tracking-wider hidden md:block">
-                ARCH2026-VGG-{Math.random().toString(36).substring(2, 8).toUpperCase()}
-              </div>
-            </div>
-
+          <div className="px-4 md:px-8 py-4 md:py-6 border-t border-[#D8CDB5]">
             <Button
               type="submit"
               size="lg"
               disabled={!travelMonth || travelStyles.length === 0}
-              className="h-12 md:h-14 px-6 md:px-8 text-sm md:text-base font-black uppercase tracking-wider bg-gradient-to-r from-[#821d30] via-[#ce5b20] to-[#237478] hover:shadow-2xl transition-all disabled:opacity-50 w-full md:w-auto"
+              className="h-12 md:h-14 px-6 md:px-8 text-sm md:text-base font-medium bg-[#821d30] hover:bg-[#6E182A] hover:shadow-lg transition-all disabled:opacity-50 w-full rounded-full"
             >
               <Plane className="w-4 h-4 md:w-5 md:h-5 mr-2" />
-              <span className="hidden md:inline">Scopri la Destinazione per Te</span>
-              <span className="md:hidden">Scopri Destinazione</span>
+              Trova la destinazione per me
             </Button>
           </div>
         </motion.div>
