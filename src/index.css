@@ -168,9 +168,10 @@
     inset: 0;
     pointer-events: none;
     z-index: 9999;
-    opacity: 0.06;
-    mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAMhJREFUaEPtlEEKwzAMBPP/P5uDvYddJSvJhkI6pKC1pBl5e/z6FeIPImJERIyIiBERMSIiRkTEiIgYEREjImJERIyIiBERMSIiRkTEiIgYERH/+MUzn3lmn/r+s+/4i2c+88z8iz71/Wff8RfPfOaZ+Rd96vvPvuMvnvnMM/Mv+tT3n33HXzzzmWfmX/Sp7z/7jr945jPPzL/oU99/9h1/8cxnnpl/0ae+/+w7/uKZzzwz/6JPff/Zd1TEO+IB+uAdRYw30gkfJGcfAyEAAAAASUVORK5CYII=");
+    background-repeat: repeat;
+    background-size: 50px 50px;
   }
 
   h1, h2, h3, h4, h5, h6 {

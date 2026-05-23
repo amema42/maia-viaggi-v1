@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Compass, Award, Users } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { TicketForm } from '@/components/TicketForm';
@@ -7,7 +6,6 @@ import { WorldMap } from '@/components/WorldMap';
 import { PassportBook } from '@/components/PassportBook';
 import { Footer } from '@/components/Footer';
 import { TicketFormData } from '@/lib/index';
-import { springPresets } from '@/lib/motion';
 import { useLanguage } from '@/lib/i18n';
 
 export default function Home() {
@@ -42,202 +40,109 @@ export default function Home() {
         className="min-h-screen flex items-center justify-center relative snap-start pt-20 md:pt-24"
       >
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={springPresets.gentle}
-          className="container mx-auto px-4 py-6 relative z-10 flex flex-col items-center"
-        >
-          <div className="max-w-4xl w-full text-center mb-6">
-            
-            <motion.h1
-              className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent leading-tight text-center"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ ...springPresets.bouncy, delay: 0.2 }}
-            >
+        <div className="container mx-auto px-4 py-6 relative z-10 flex flex-col items-center">
+          <div className="max-w-4xl w-full text-center mb-8">
+            <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-medium mb-6 text-[#1A1A1A] leading-tight">
               {t('heroMainTitle')}
-            </motion.h1>
-            <motion.p 
-              className="text-xl md:text-2xl text-muted-foreground mb-8 text-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ ...springPresets.gentle, delay: 0.4 }}
-            >
+            </h1>
+            <p className="text-xl md:text-2xl text-[#595142] mb-8">
               {t('heroMainSubtitle')}
-            </motion.p>
+            </p>
           </div>
 
-          {/* Card informative */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...springPresets.gentle, delay: 0.5 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-3xl mx-auto mb-8"
-          >
-            <motion.div
-              whileHover={{ y: -4 }}
-              className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-sm border-t-3 border-[#821d30] transition-all hover:shadow-md"
-            >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full max-w-3xl mx-auto mb-10">
+            <div className="bg-white rounded-xl p-6 border-t-[3px] border-[#821d30] transition-all duration-200 hover:shadow-md hover:-translate-y-1">
               <Compass className="w-6 h-6 text-[#821d30] mb-3" />
-              <h3 className="font-heading text-xl font-medium text-[#1A1A1A] mb-2">
+              <h3 className="font-heading text-lg font-medium text-[#1A1A1A] mb-2">
                 Venti destinazioni
               </h3>
-              <p className="text-sm text-[#595142]">
+              <p className="text-sm text-[#595142] leading-relaxed">
                 Mete che abbiamo testato di persona, mai per sentito dire.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              whileHover={{ y: -4 }}
-              className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-sm border-t-3 border-[#ce5b20] transition-all hover:shadow-md"
-            >
+            <div className="bg-white rounded-xl p-6 border-t-[3px] border-[#ce5b20] transition-all duration-200 hover:shadow-md hover:-translate-y-1">
               <Award className="w-6 h-6 text-[#ce5b20] mb-3" />
-              <h3 className="font-heading text-xl font-medium text-[#1A1A1A] mb-2">
+              <h3 className="font-heading text-lg font-medium text-[#1A1A1A] mb-2">
                 Dieci anni a Roma
               </h3>
-              <p className="text-sm text-[#595142]">
+              <p className="text-sm text-[#595142] leading-relaxed">
                 Costruiamo viaggi su misura da quando ne ricordiamo l'inizio.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              whileHover={{ y: -4 }}
-              className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-sm border-t-3 border-[#237478] transition-all hover:shadow-md"
-            >
+            <div className="bg-white rounded-xl p-6 border-t-[3px] border-[#237478] transition-all duration-200 hover:shadow-md hover:-translate-y-1">
               <Users className="w-6 h-6 text-[#237478] mb-3" />
-              <h3 className="font-heading text-xl font-medium text-[#1A1A1A] mb-2">
+              <h3 className="font-heading text-lg font-medium text-[#1A1A1A] mb-2">
                 Sempre al telefono
               </h3>
-              <p className="text-sm text-[#595142]">
+              <p className="text-sm text-[#595142] leading-relaxed">
                 WhatsApp, telefono, email: rispondiamo davvero.
               </p>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...springPresets.gentle, delay: 0.7 }}
-            className="w-full max-w-2xl mx-auto"
-          >
+          <div className="w-full max-w-2xl mx-auto">
             <TicketForm onSubmit={handleTicketSubmit} />
-          </motion.div>
+          </div>
 
           {ticketData && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={springPresets.snappy}
-              className="mt-8 text-center"
-            >
-              <p className="text-lg text-muted-foreground">
-                Biglietto confermato! Scorri per esplorare le destinazioni
+            <div className="mt-8 text-center">
+              <p className="text-lg text-[#595142]">
+                Scorri per esplorare le destinazioni
               </p>
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-                className="mt-4 text-accent text-4xl"
-              >
+              <div className="mt-4 text-[#821D30] text-2xl animate-bounce">
                 ↓
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           )}
-        </motion.div>
+        </div>
       </section>
 
-      {/* Sezione Chi Siamo */}
-      <section className="py-4 md:py-6 relative">
+      <section className="py-12 md:py-16 relative">
         <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={springPresets.gentle}
-          >
-            <h2 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold mb-2 bg-gradient-to-r from-[#821d30] via-[#ce5b20] to-[#237478] bg-clip-text text-transparent">
-              Chi Siamo?
-            </h2>
-            <p className="font-heading text-2xl md:text-4xl font-semibold text-foreground/80 mb-3">
-              Scoprilo aprendo il nostro passaporto
-            </p>
-            
-            {/* Freccia animata che punta al passaporto */}
-            <motion.div
-              animate={{ y: [0, 15, 0] }}
-              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-              className="text-6xl md:text-8xl"
-            >
-              ↓
-            </motion.div>
-          </motion.div>
+          <h2 className="font-heading text-3xl md:text-5xl font-medium mb-2 text-[#1A1A1A]">
+            Chi siamo?
+          </h2>
+          <p className="font-heading text-lg md:text-2xl italic text-[#595142] mb-4">
+            Scoprilo aprendo il nostro passaporto
+          </p>
+          <div className="text-3xl text-[#821D30] animate-bounce">↓</div>
         </div>
       </section>
 
-      {/* Sezione Passaporto */}
-      <section 
-        id="passport-section" 
-        className="min-h-screen flex items-start justify-center relative snap-start pt-2 md:pt-4 pb-2 md:pb-3"
+      <section
+        id="passport-section"
+        className="flex items-start justify-center relative py-8 md:py-12"
       >
-        {/* Sfondo con pattern */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(220,179,140,0.1),transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(206,91,32,0.08),transparent_50%)]" />
-        </div>
-        
         <div className="container mx-auto px-4 relative z-10">
-          <div className="flex flex-col items-center gap-8">
-            {/* Passaporto */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ ...springPresets.bouncy, delay: 0.4 }}
-              className="w-full max-w-4xl"
-            >
+          <div className="flex flex-col items-center">
+            <div className="w-full max-w-4xl">
               <PassportBook />
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
-      <AnimatePresence>
-        {showMap && (
-          <motion.section
-            id="map-section"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={springPresets.smooth}
-            className="min-h-screen flex items-center justify-center relative snap-start py-4"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-primary/10" />
-            
-            <div className="container mx-auto px-4 relative z-10">
-              <WorldMap visible={showMap} filterTags={selectedTags} />
-            </div>
-          </motion.section>
-        )}
-      </AnimatePresence>
+      {showMap && (
+        <section id="map-section" className="py-8 md:py-12 relative">
+          <div className="container mx-auto px-4 relative z-10">
+            <WorldMap visible={showMap} filterTags={selectedTags} />
+          </div>
+        </section>
+      )}
 
       {/* Sezione Le Nostre Destinazioni - sempre visibile sotto il passaporto */}
-      <section id="destinazioni" className="py-8 md:py-12 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5" />
+      <section id="destinazioni" className="py-12 md:py-16 relative">
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={springPresets.gentle}
-            className="text-center mb-8"
-          >
-            <h2 className="font-heading text-3xl md:text-5xl font-bold bg-gradient-to-r from-[#821d30] via-[#ce5b20] to-[#237478] bg-clip-text text-transparent mb-3">
-              Le Nostre Destinazioni
+          <div className="text-center mb-10">
+            <h2 className="font-heading text-3xl md:text-5xl font-medium text-[#1A1A1A] mb-3">
+              Le nostre destinazioni
             </h2>
-            <p className="text-base md:text-lg text-foreground/70 font-medium">
+            <p className="text-base md:text-lg text-[#595142]">
               Esplora tutte le mete e clicca per scoprire il tuo viaggio ideale
             </p>
-          </motion.div>
+          </div>
           <WorldMap visible={true} filterTags={[]} />
         </div>
       </section>

@@ -102,43 +102,29 @@ export function WorldMap({ visible, filterTags = [] }: WorldMapProps) {
         })}
       </motion.div>
 
-      {/* Griglia card destinazioni */}
-      <motion.div
-        layout
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
-      >
-        <AnimatePresence mode="popLayout">
-          {filteredDestinations.map((dest, index) => {
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          {filteredDestinations.map((dest) => {
             const color = getArchetypeColor(dest.archetype);
             const imageUrl = IMAGES[dest.imageKey as keyof typeof IMAGES];
 
             return (
-              <motion.div
+              <div
                 key={dest.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.85, y: -10 }}
-                transition={{ ...springPresets.gentle, delay: index * 0.04 }}
                 onClick={() => setSelectedDestination(dest.id)}
-                className="cursor-pointer group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 bg-white"
-                style={{ border: `2px solid transparent` }}
-                whileHover={{ scale: 1.03, y: -4 }}
-                whileTap={{ scale: 0.97 }}
+                className="cursor-pointer group relative rounded-2xl overflow-hidden bg-white border border-[#D8CDB5] transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
               >
-                {/* Foto */}
                 <div className="relative h-48 overflow-hidden">
                   <img
                     src={imageUrl}
                     alt={dest.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
-                  {/* Badge archetype */}
-                  <div
-                    className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium text-[#1A1A1A] bg-[#F5EFE1]/92 backdrop-blur-sm"
-                  >
+                  <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium text-[#1A1A1A] bg-[#F5EFE1]/92 backdrop-blur-sm">
                     <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
                     {dest.archetype === 'dreamer' ? 'il sognatore' :
                      dest.archetype === 'chic' ? 'la chic' :
@@ -146,47 +132,38 @@ export function WorldMap({ visible, filterTags = [] }: WorldMapProps) {
                      dest.archetype === 'neutral' ? 'neutra' : "l'avventuroso"}
                   </div>
 
-                  {/* Nome + paese sull'immagine */}
                   <div className="absolute bottom-3 left-4 right-4">
-                    <h3 className="font-bold text-white text-lg leading-tight drop-shadow">{dest.name}</h3>
+                    <h3 className="font-heading font-medium text-white text-lg leading-tight drop-shadow">{dest.name}</h3>
                     <p className="text-white/80 text-xs flex items-center gap-1 mt-0.5">
                       <MapPin className="w-3 h-3" /> {dest.country}
                     </p>
                   </div>
                 </div>
 
-                {/* Testo suggestivo */}
                 <div className="p-4">
-                  <p className="text-sm text-gray-600 leading-relaxed line-clamp-3 italic">
-                    "{dest.description}"
+                  <p className="text-sm text-[#595142] leading-relaxed line-clamp-2">
+                    {dest.description}
                   </p>
 
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-1 mt-3">
+                  <div className="flex flex-wrap gap-1.5 mt-3">
                     {dest.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="text-[10px] px-2 py-0.5 rounded-full font-medium"
-                        style={{ backgroundColor: `${color}18`, color }}
+                        className="text-[10px] px-2 py-0.5 rounded-full font-medium border border-[#D8CDB5] text-[#595142]"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  {/* Scopri di più */}
-                  <div
-                    className="mt-3 text-xs font-bold flex items-center gap-1 group-hover:gap-2 transition-all"
-                    style={{ color }}
-                  >
+                  <div className="mt-3 text-xs font-medium flex items-center gap-1 group-hover:gap-2 transition-all text-[#821D30]">
                     Scopri di più <span>→</span>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
-        </AnimatePresence>
-      </motion.div>
+      </div>
 
       {/* Nessun risultato */}
       {filteredDestinations.length === 0 && (
