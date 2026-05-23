@@ -120,11 +120,11 @@ export function PassportBook() {
               <div className="relative w-full h-full p-6 md:p-8 flex flex-col items-center justify-between">
                 {/* Header */}
                 <div className="text-center space-y-1">
-                  <div className="text-[#D4AF37] font-serif text-[10px] md:text-xs tracking-[0.4em] font-semibold">
-                    UNIONE EUROPEA
+                  <div className="text-[#D4AF37] font-serif text-[10px] md:text-xs tracking-[0.2em]">
+                    Unione Europea
                   </div>
-                  <div className="text-[#D4AF37] font-serif text-xs md:text-sm tracking-[0.3em] font-bold">
-                    REPUBBLICA ITALIANA
+                  <div className="text-[#D4AF37] font-serif text-xs md:text-sm tracking-[0.15em] font-semibold">
+                    Repubblica Italiana
                   </div>
                 </div>
                 
@@ -160,16 +160,13 @@ export function PassportBook() {
                     </div>
                   </div>
                   
-                  <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#D4AF37] tracking-[0.15em]">
-                    PASSAPORTO
+                  <h2 className="font-heading text-3xl md:text-4xl font-medium text-[#D4AF37] tracking-[0.05em]">
+                    Passaporto
                   </h2>
-                  
+
                   <div className="text-center space-y-1">
-                    <p className="font-heading text-[#D4AF37]/90 text-sm md:text-base tracking-[0.2em]">
-                      PASSPORT
-                    </p>
-                    <p className="text-[#D4AF37]/70 text-xs md:text-sm tracking-widest">
-                      I NOSTRI CONSULENTI
+                    <p className="font-heading text-[#D4AF37]/90 text-sm md:text-base italic">
+                      i nostri consulenti
                     </p>
                   </div>
                 </div>
@@ -184,7 +181,7 @@ export function PassportBook() {
                 }}>
                     <Stamp className="w-4 h-4" />
                   </motion.div>
-                  <span className="text-[10px] tracking-widest font-mono">CLICCA PER APRIRE</span>
+                  <span className="text-[11px] font-mono text-[#D4AF37]/60">apri il passaporto</span>
                 </div>
               </div>
             </div>
@@ -299,7 +296,7 @@ export function PassportBook() {
                   {/* Titolo */}
                   <div className="text-center mb-6">
                     <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#237478] mb-2">
-                      IL NOSTRO TEAM
+                      Il nostro team
                     </h2>
                     <div className="h-1 w-24 mx-auto bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
                   </div>
@@ -357,21 +354,21 @@ export function PassportBook() {
                           {/* Info */}
                           <div className="flex-1 min-w-0">
                             <div className="mb-1">
-                              <div className="text-[9px] text-zinc-500 dark:text-zinc-400 font-mono tracking-widest mb-0.5">
-                                NOME
+                              <div className="text-[10px] text-zinc-500 dark:text-zinc-400 font-mono mb-0.5">
+                                nome
                               </div>
                               <h4
-                                className="font-heading text-base font-bold"
+                                className="font-heading text-base font-medium"
                                 style={{ color: archetype.color }}
                               >
                                 {archetype.memberName}
                               </h4>
                             </div>
                             <div>
-                              <div className="text-[9px] text-zinc-500 dark:text-zinc-400 font-mono tracking-widest mb-0.5">
-                                RUOLO
+                              <div className="text-[10px] text-zinc-500 dark:text-zinc-400 font-mono mb-0.5">
+                                ruolo
                               </div>
-                              <p className="text-xs font-semibold text-zinc-700 dark:text-zinc-300">
+                              <p className="text-xs font-heading italic text-zinc-700 dark:text-zinc-300">
                                 {archetype.role}
                               </p>
                             </div>
@@ -511,7 +508,7 @@ export function PassportBook() {
                   onClick={() => setSelectedMember(null)}
                   className="w-full py-3 bg-gradient-to-r from-[#8B1538] to-[#ce5b20] text-white font-bold rounded-lg hover:shadow-lg transition-all"
                 >
-                  CHIUDI
+                  Chiudi
                 </button>
               </div>
             </motion.div>

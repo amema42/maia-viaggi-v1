@@ -45,7 +45,7 @@ export function Footer() {
             viewport={{ once: true }}
             className="flex flex-col"
           >
-            <h3 className="font-heading text-xl font-bold mb-4">{t('footerAbout')}</h3>
+            <h3 className="font-heading text-lg italic text-[#DCB38C] mb-4 font-normal">{t('footerAbout')}</h3>
             <p className="text-sm text-white/80 leading-relaxed">
               {t('footerAboutDesc')}
             </p>
@@ -59,7 +59,7 @@ export function Footer() {
             viewport={{ once: true }}
             className="flex flex-col"
           >
-            <h3 className="font-heading text-xl font-bold mb-4">{t('footerUsefulLinks')}</h3>
+            <h3 className="font-heading text-lg italic text-[#DCB38C] mb-4 font-normal">{t('footerUsefulLinks')}</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a href={ROUTE_PATHS.HOME} className="hover:text-white/80 transition-colors">
@@ -87,7 +87,7 @@ export function Footer() {
             viewport={{ once: true }}
             className="flex flex-col"
           >
-            <h3 className="font-heading text-xl font-bold mb-4">{t('footerContacts')}</h3>
+            <h3 className="font-heading text-lg italic text-[#DCB38C] mb-4 font-normal">{t('footerContacts')}</h3>
             <div className="space-y-3 text-sm">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
@@ -116,7 +116,7 @@ export function Footer() {
             viewport={{ once: true }}
             className="flex flex-col"
           >
-            <h3 className="font-heading text-xl font-bold mb-4">{t('footerFollowUs')}</h3>
+            <h3 className="font-heading text-lg italic text-[#DCB38C] mb-4 font-normal">{t('footerFollowUs')}</h3>
             <div className="space-y-3 text-sm">
               <a href="https://instagram.com/maiaviaggi" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white/80 transition-colors group">
                 <FaInstagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
@@ -141,7 +141,7 @@ export function Footer() {
             viewport={{ once: true }}
             className="flex flex-col"
           >
-            <h3 className="font-heading text-xl font-bold mb-4">{t('footerPayments')}</h3>
+            <h3 className="font-heading text-lg italic text-[#DCB38C] mb-4 font-normal">{t('footerPayments')}</h3>
             <div className="space-y-3">
               {/* Riga 1: Klarna, Scalapay */}
               <div className="flex items-center gap-3 flex-wrap">
@@ -178,7 +178,7 @@ export function Footer() {
             viewport={{ once: true }}
             className="flex flex-col"
           >
-            <h3 className="font-heading text-xl font-bold mb-4">Informazioni Legali</h3>
+            <h3 className="font-heading text-lg italic text-[#DCB38C] mb-4 font-normal">Informazioni Legali</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to={ROUTE_PATHS.PRIVACY} className="hover:text-white/80 transition-colors">
