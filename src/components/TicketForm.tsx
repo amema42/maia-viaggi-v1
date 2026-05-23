@@ -153,13 +153,11 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
               </Label>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
                 {travelStyleOptions.map((style) => (
-                  <motion.button
+                  <button
                     key={style}
                     type="button"
                     onClick={() => toggleTravelStyle(style)}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`relative px-3 md:px-4 py-2 md:py-3 rounded-xl text-xs md:text-sm font-bold transition-all border-2 shadow-md ${
+                    className={`relative px-3 md:px-4 py-2 md:py-3 rounded-xl text-xs md:text-sm font-bold transition-all duration-200 border-2 shadow-md hover:scale-[1.03] active:scale-[0.97] ${
                       travelStyles.includes(style)
                         ? 'bg-[#1A1A1A] text-[#F5EFE1] border-transparent'
                         : 'bg-white text-[#595142] border-[#D8CDB5] hover:border-[#821d30] hover:text-[#821d30]'
@@ -169,7 +167,7 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
                       <Check className="w-4 h-4 md:w-5 md:h-5 absolute top-2 right-2" strokeWidth={3} />
                     )}
                     {style}
-                  </motion.button>
+                  </button>
                 ))}
               </div>
               {travelStyles.length > 0 && (

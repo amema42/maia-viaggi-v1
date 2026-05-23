@@ -34,7 +34,7 @@ export function CookieBanner() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={springPresets.snappy}
-          className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6"
+          className="fixed bottom-0 left-0 right-0 z-40 p-4 md:p-6"
         >
           <div className="max-w-6xl mx-auto bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl border-2 border-primary/20 overflow-hidden">
             <div className="relative p-6 md:p-8">

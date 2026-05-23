@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Stamp } from 'lucide-react';
 import { ARCHETYPES } from '@/lib/index';
@@ -7,6 +7,14 @@ import { springPresets } from '@/lib/motion';
 export function PassportBook() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedMember, setSelectedMember] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
   
   const memberDetails: Record<string, { description: string; skills: string[] }> = {
     Michele: {
@@ -89,7 +97,7 @@ export function PassportBook() {
       y: -8
     }} transition={springPresets.snappy}>
         <motion.div className="relative w-full" style={{
-        minHeight: isOpen ? window.innerWidth < 768 ? '900px' : '700px' : window.innerWidth < 768 ? '450px' : '550px',
+        minHeight: isOpen ? (isMobile ? '900px' : '700px') : (isMobile ? '450px' : '550px'),
         height: 'auto',
         transformStyle: 'preserve-3d'
       }} animate={{
@@ -335,7 +343,7 @@ export function PassportBook() {
                               <img
                                 src={archetype.photo}
                                 alt={archetype.memberName}
-                                className="w-full h-full object-cover grayscale-[30%]"
+                                className="w-full h-full object-cover grayscale-[30%]" loading="lazy" decoding="async"
                               />
                             </div>
                             {/* Timbro */}
@@ -435,7 +443,7 @@ export function PassportBook() {
                       <img
                         src={archetypesList.find(a => a.memberName === selectedMember)?.photo}
                         alt={selectedMember}
-                        className="w-full h-full object-cover grayscale-[30%]"
+                        className="w-full h-full object-cover grayscale-[30%]" loading="lazy" decoding="async"
                       />
                     </div>
                     <div>
