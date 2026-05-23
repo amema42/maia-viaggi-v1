@@ -18,8 +18,8 @@ const App = () => (
       <MotionConfig reducedMotion="user">
         <Toaster />
         <Sonner />
-        <CookieBanner />
         <BrowserRouter>
+          <CookieBanner />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/privacy" element={<Privacy />} />
