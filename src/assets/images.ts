@@ -287,11 +287,11 @@ export const IMAGES = {
   WORLD_MAP_7: "https://images.unsplash.com/photo-1742415105376-43d3a5fd03fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDU2OTd8MHwxfHNlYXJjaHwzfHx3b3JsZCUyMG1hcCUyMHRyYXZlbCUyMGRlc3RpbmF0aW9uc3xlbnwwfDB8fHwxNzc0NzI4MTkzfDA&ixlib=rb-4.1.0&q=80&w=1080",
   WORLD_MAP_8: "https://images.unsplash.com/photo-1617480088906-60b89b36f305?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDU2OTd8MHwxfHNlYXJjaHw3fHx3b3JsZCUyMG1hcCUyMHRyYXZlbCUyMGRlc3RpbmF0aW9uc3xlbnwwfDB8fHwxNzc0NzI4MTkzfDA&ixlib=rb-4.1.0&q=80&w=1080",
   WORLD_MAP_9: "https://images.unsplash.com/photo-1762141018794-17f5186d1180?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDU2OTd8MHwxfHNlYXJjaHwxfHx3b3JsZCUyMG1hcCUyMHRyYXZlbCUyMGRlc3RpbmF0aW9uc3xlbnwwfDB8fHwxNzc0NzI4MTkzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-  // Nuove destinazioni (Unsplash placeholder — da sostituire con foto curate)
-  THAILAND_1: "https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1080&q=80",
-  JAPAN_1: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1080&q=80",
-  ISTANBUL_1: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1080&q=80",
-  AMSTERDAM_1: "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?auto=format&fit=crop&w=1080&q=80",
+  // Nuove destinazioni
+  THAILAND_1: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1080&q=80",
+  JAPAN_1: "https://images.unsplash.com/photo-1492571350019-22de08371fd3?auto=format&fit=crop&w=1080&q=80",
+  ISTANBUL_1: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=1080&q=80",
+  AMSTERDAM_1: "https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?auto=format&fit=crop&w=1080&q=80",
   VIENNA_1: "https://images.unsplash.com/photo-1516550893923-42d28e5677af?auto=format&fit=crop&w=1080&q=80",
   PRAGUE_1: "https://images.unsplash.com/photo-1541849546-216549ae216d?auto=format&fit=crop&w=1080&q=80",
 } as const;
