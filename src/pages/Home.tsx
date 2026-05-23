@@ -291,7 +291,7 @@ export default function Home() {
 
       {/* Widget WhatsApp che segue il cursore */}
       <motion.a
-        href="https://wa.me/393123456789?text=Ciao%20MAIA%20Viaggi!%20Vorrei%20informazioni%20sui%20vostri%20servizi"
+        href="https://wa.me/390640089596?text=Ciao%20MAIA%20Viaggi!%20Vorrei%20informazioni%20sui%20vostri%20servizi"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ scale: 0, opacity: 0 }}

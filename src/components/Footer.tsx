@@ -32,8 +32,8 @@ export function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="relative bg-gradient-to-br from-[#821d30] via-[#ce5b20] to-[#237478] text-white py-12 md:py-16">
-      <div className="absolute inset-0 bg-black/20" />
+    <footer className="relative bg-[#1A1A1A] text-white py-12 md:py-16">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(130,29,48,0.15),transparent_50%)]" />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-8 mb-8">
@@ -191,7 +191,10 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <span className="text-white/60">P.IVA: 18332251000</span>
+                <span className="text-white/60">MAIA 4.0 SRL</span>
+              </li>
+              <li>
+                <span className="text-white/60">P.IVA / C.F.: 18332251000</span>
               </li>
             </ul>
           </motion.div>
