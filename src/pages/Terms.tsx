@@ -14,7 +14,7 @@ export default function Terms() {
       <PageMeta title="Termini e Condizioni" description="Termini e condizioni di utilizzo del sito MAIA Viaggi." path="/termini" />
       <Header />
 
-      <main className="container mx-auto px-4 py-24 md:py-32">
+      <main className="container mx-auto px-4 py-24 md:py-32 max-w-3xl">
         <Link to="/" className="inline-flex items-center gap-2 text-sm text-[#821D30] hover:underline mb-6 font-medium">
           <ArrowLeft className="w-4 h-4" /> Torna alla home
         </Link>
@@ -22,7 +22,6 @@ export default function Terms() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={springPresets.gentle}
-          className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12"
         >
           <p className="font-heading italic text-sm text-[#DCB38C] mb-3">&mdash; informativa</p>
           <h1 className="font-heading text-4xl md:text-5xl font-semibold text-[#821D30] mb-8">
@@ -32,7 +31,7 @@ export default function Terms() {
           <div className="space-y-6 text-foreground/80 leading-relaxed">
             <section>
               <h2 className="font-heading text-xl font-semibold text-foreground mb-3">1. Titolare del sito</h2>
-              <div className="p-4 bg-[#F5EFE1] rounded-lg text-sm space-y-1">
+              <div className="p-4 bg-white/60 rounded-lg border border-zinc-100 text-sm space-y-1">
                 <p><strong>{COMPANY_LEGAL.name}</strong></p>
                 <p>{COMPANY_LEGAL.address}</p>
                 <p>P.IVA / C.F.: {COMPANY_LEGAL.vat}</p>
