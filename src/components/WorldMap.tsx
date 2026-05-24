@@ -24,8 +24,8 @@ const AREA_FILTERS = [
 const getArea = (dest: typeof DESTINATIONS[0]) => {
   const europeCountries = ['Italia', 'Francia', 'Austria', 'Ungheria', 'Romania', 'Croazia', 'Paesi Bassi', 'Grecia', 'Portogallo', 'Spagna', 'Regno Unito', 'Irlanda', 'Repubblica Ceca']
   const africaCountries = ['Marocco', 'Egitto', 'Tanzania', 'Kenya', 'Tunisia', 'Namibia']
-  const asiaCountries = ['Tailandia', 'Giappone', 'Indonesia', 'Cina', 'India', 'Vietnam', 'Cambogia']
-  const americheCountries = ['Stati Uniti', 'Messico', 'Brasile', 'Argentina', 'Peru', 'Cuba', 'USA / Bahamas']
+  const asiaCountries = ['Thailandia', 'Giappone', 'Indonesia', 'Cina', 'India', 'Vietnam', 'Cambogia']
+  const americheCountries = ['USA', 'USA / Bahamas', 'Stati Uniti', 'Messico', 'Brasile', 'Argentina', 'Peru', 'Cuba']
   const mediorienteCountries = ['Emirati Arabi', 'Giordania', 'Israele', 'Oman', 'Turchia']
   if (europeCountries.includes(dest.country)) return 'europa'
   if (africaCountries.includes(dest.country)) return 'africa'
@@ -229,6 +229,7 @@ export function WorldMap({ filterTags = [] }: WorldMapProps) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 <button type="button"
+                  aria-label="Chiudi"
                   className="absolute top-4 right-4 w-9 h-9 bg-black/30 hover:bg-black/50 text-white rounded-full flex items-center justify-center transition-colors"
                   onClick={() => setSelectedDestination(null)}
                 >

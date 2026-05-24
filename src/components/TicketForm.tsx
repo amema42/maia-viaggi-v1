@@ -11,10 +11,17 @@ const LOCALE_MAP: Record<string, string> = {
   it: 'it-IT', en: 'en-GB', es: 'es-ES', fr: 'fr-FR', de: 'de-DE',
 }
 
-const MONTH_VALUES = [
-  '2026-04', '2026-05', '2026-06', '2026-07', '2026-08', '2026-09',
-  '2026-10', '2026-11', '2026-12', '2027-01', '2027-02', '2027-03',
-]
+function getNextMonths(count: number): string[] {
+  const now = new Date()
+  const result: string[] = []
+  for (let i = 0; i < count; i++) {
+    const d = new Date(now.getFullYear(), now.getMonth() + 1 + i, 1)
+    const y = d.getFullYear()
+    const m = String(d.getMonth() + 1).padStart(2, '0')
+    result.push(`${y}-${m}`)
+  }
+  return result
+}
 
 function formatMonth(value: string, locale: string): string {
   const [year, month] = value.split('-').map(Number)
@@ -23,9 +30,17 @@ function formatMonth(value: string, locale: string): string {
   return formatted.charAt(0).toUpperCase() + formatted.slice(1)
 }
 
-const TRAVEL_STYLE_KEYS = [
-  'styleFood', 'styleAdventure', 'styleCultural', 'styleRelax', 'styleBeach',
-  'styleMountain', 'styleRomantic', 'styleFamily', 'styleLuxury', 'styleReligious',
+const TRAVEL_STYLES = [
+  { key: 'styleFood', tags: ['Enogastronomico'] },
+  { key: 'styleAdventure', tags: ['Avventura'] },
+  { key: 'styleCultural', tags: ['Culturale', 'Storica', 'Archeologica'] },
+  { key: 'styleRelax', tags: ['Balneare', 'Spirituale'] },
+  { key: 'styleBeach', tags: ['Balneare'] },
+  { key: 'styleMountain', tags: ['Avventura'] },
+  { key: 'styleRomantic', tags: ['Romantica'] },
+  { key: 'styleFamily', tags: ['City break', 'Balneare'] },
+  { key: 'styleLuxury', tags: ['Lusso'] },
+  { key: 'styleReligious', tags: ['Spirituale', 'Culturale'] },
 ] as const
 
 interface TicketFormProps {
@@ -36,9 +51,10 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
   const { t, language } = useLanguage()
   const locale = LOCALE_MAP[language] || 'it-IT'
 
+  const monthValues = useMemo(() => getNextMonths(12), [])
   const months = useMemo(() =>
-    MONTH_VALUES.map(v => ({ value: v, label: formatMonth(v, locale) })),
-    [locale]
+    monthValues.map(v => ({ value: v, label: formatMonth(v, locale) })),
+    [locale, monthValues]
   )
 
   const [formData, setFormData] = useState<TicketFormData>({
@@ -51,20 +67,23 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
   })
 
   const [travelMonth, setTravelMonth] = useState('')
-  const [travelStyles, setTravelStyles] = useState<string[]>([])
+  const [selectedKeys, setSelectedKeys] = useState<string[]>([])
 
-  const toggleTravelStyle = (style: string) => {
-    setTravelStyles(prev =>
-      prev.includes(style)
-        ? prev.filter(s => s !== style)
-        : [...prev, style]
+  const toggleStyle = (key: string) => {
+    setSelectedKeys(prev =>
+      prev.includes(key) ? prev.filter(k => k !== key) : [...prev, key]
     )
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (travelMonth && travelStyles.length > 0) {
-      onSubmit({ ...formData, departureDate: travelMonth, returnDate: travelMonth, preferences: travelStyles.join(', ') })
+    if (travelMonth && selectedKeys.length > 0) {
+      const allTags = selectedKeys.flatMap(key => {
+        const style = TRAVEL_STYLES.find(s => s.key === key)
+        return style ? [...style.tags] : []
+      })
+      const uniqueTags = [...new Set(allTags)]
+      onSubmit({ ...formData, departureDate: travelMonth, returnDate: travelMonth, preferences: uniqueTags.join(', ') })
     }
   }
 
@@ -130,14 +149,14 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
                 {t('formTravelType')}
               </Label>
               <div className="flex flex-wrap gap-2">
-                {TRAVEL_STYLE_KEYS.map((key) => {
+                {TRAVEL_STYLES.map(({ key }) => {
                   const label = t(key as any)
-                  const selected = travelStyles.includes(label)
+                  const selected = selectedKeys.includes(key)
                   return (
                     <button
                       key={key}
                       type="button"
-                      onClick={() => toggleTravelStyle(label)}
+                      onClick={() => toggleStyle(key)}
                       className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border whitespace-nowrap transition-all duration-200 ${
                         selected
                           ? 'bg-[#821d30] text-white border-[#821d30]'
@@ -150,9 +169,9 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
                   )
                 })}
               </div>
-              {travelStyles.length > 0 && (
+              {selectedKeys.length > 0 && (
                 <p className="mt-2 text-[11px] text-zinc-400 font-mono">
-                  {travelStyles.length} {t('formSelected')}
+                  {selectedKeys.length} {t('formSelected')}
                 </p>
               )}
             </div>
@@ -160,7 +179,7 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
             <Button
               type="submit"
               size="lg"
-              disabled={!travelMonth || travelStyles.length === 0}
+              disabled={!travelMonth || selectedKeys.length === 0}
               className="h-12 px-8 text-sm font-medium bg-[#821d30] hover:bg-[#6E182A] transition-all disabled:opacity-40 w-full rounded-full"
             >
               <Plane className="w-4 h-4 mr-2" />

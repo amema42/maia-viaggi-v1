@@ -7,7 +7,7 @@ Sito vetrina di MAIA 4.0 SRL, agenzia di viaggi con sede a Roma.
 - Vite 5 + React 18 + TypeScript
 - Tailwind CSS v4 + shadcn/ui
 - Framer Motion
-- Fraunces + Inter + JetBrains Mono (self-hosted via Google Fonts)
+- Fraunces + Inter + JetBrains Mono (caricati via Google Fonts CDN)
 
 ## Sviluppo
 

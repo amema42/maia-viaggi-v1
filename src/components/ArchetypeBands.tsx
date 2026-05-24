@@ -45,9 +45,10 @@ export function ArchetypeBands() {
         }}
       >
         {bands.map((band, i) => (
-          <div
+          <button
+            type="button"
             key={band.id}
-            className="relative cursor-pointer overflow-hidden group"
+            className="relative cursor-pointer overflow-hidden group text-left"
             onMouseEnter={() => setActiveBand(i)}
             onMouseLeave={() => setActiveBand(null)}
             onClick={() => setSelectedMember(band.memberName)}
@@ -77,16 +78,17 @@ export function ArchetypeBands() {
                 </p>
               )}
             </div>
-          </div>
+          </button>
         ))}
       </div>
 
       {/* Mobile: horizontal scrollable cards */}
       <div className="md:hidden flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory px-4 -mx-4">
         {bands.map((band) => (
-          <div
+          <button
+            type="button"
             key={band.id}
-            className="relative flex-shrink-0 w-[280px] h-[360px] rounded-xl overflow-hidden snap-center cursor-pointer"
+            className="relative flex-shrink-0 w-[280px] h-[360px] rounded-xl overflow-hidden snap-center cursor-pointer text-left"
             onClick={() => setSelectedMember(band.memberName)}
           >
             <img
@@ -102,7 +104,7 @@ export function ArchetypeBands() {
               <p className="font-heading text-xl font-medium">{band.memberName}</p>
               <p className="font-heading italic text-sm opacity-90">{band.role}</p>
             </div>
-          </div>
+          </button>
         ))}
       </div>
 
@@ -149,6 +151,7 @@ export function ArchetypeBands() {
                       />
                       <button type="button"
                         onClick={() => setSelectedMember(null)}
+                        aria-label="Chiudi"
                         className="absolute top-4 right-4 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-zinc-700 hover:bg-white shadow-lg transition-colors"
                       >
                         <X className="w-4 h-4" />
