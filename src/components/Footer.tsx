@@ -4,6 +4,7 @@ import { SiKlarna, SiVisa, SiMastercard, SiAmericanexpress } from 'react-icons/s
 import { CreditCard } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { ROUTE_PATHS } from '@/lib/index'
+import { COMPANY_LEGAL, LEGAL_PATHS } from '@/lib/legal'
 import { useLanguage } from '@/lib/i18n'
 
 const WA_URL = 'https://wa.me/390640089596?text=Ciao%20MAIA%20Viaggi!%20Vorrei%20informazioni%20sui%20vostri%20servizi'
@@ -32,6 +33,7 @@ export function Footer() {
                 <li><a href="#destinazioni-section" className="text-white/70 hover:text-white transition-colors">Destinazioni</a></li>
                 <li><Link to={ROUTE_PATHS.PRIVACY} className="text-white/70 hover:text-white transition-colors">Privacy Policy</Link></li>
                 <li><Link to={ROUTE_PATHS.COOKIE} className="text-white/70 hover:text-white transition-colors">Cookie Policy</Link></li>
+                <li><Link to={LEGAL_PATHS.TERMS} className="text-white/70 hover:text-white transition-colors">Termini e Condizioni</Link></li>
               </ul>
             </div>
           </div>
@@ -42,15 +44,15 @@ export function Footer() {
             <div className="space-y-3 text-sm">
               <div className="flex items-start gap-2 text-white/70">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <span>Via Antonio Bertoloni 44, Roma</span>
+                <span>{COMPANY_LEGAL.address}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 flex-shrink-0 text-white/70" />
-                <a href="tel:+390640089596" className="text-white/70 hover:text-white transition-colors">+39 06 40089596</a>
+                <a href={COMPANY_LEGAL.phoneHref} className="text-white/70 hover:text-white transition-colors">{COMPANY_LEGAL.phone}</a>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 flex-shrink-0 text-white/70" />
-                <a href="mailto:info@maiaviaggi.it" className="text-white/70 hover:text-white transition-colors">info@maiaviaggi.it</a>
+                <a href={COMPANY_LEGAL.emailHref} className="text-white/70 hover:text-white transition-colors">{COMPANY_LEGAL.email}</a>
               </div>
             </div>
 
@@ -94,8 +96,9 @@ export function Footer() {
             </div>
 
             <div className="text-sm text-white/50 space-y-1">
-              <p>MAIA 4.0 SRL</p>
-              <p>P.IVA / C.F.: 18332251000</p>
+              <p>{COMPANY_LEGAL.name}</p>
+              <p>P.IVA / C.F.: {COMPANY_LEGAL.vat}</p>
+              <p>{COMPANY_LEGAL.site}</p>
             </div>
           </div>
         </div>

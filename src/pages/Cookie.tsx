@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { COMPANY_LEGAL } from '@/lib/legal'
 import { springPresets } from '@/lib/motion'
 
 export default function Cookie() {
@@ -22,70 +23,102 @@ export default function Cookie() {
 
           <div className="space-y-6 text-foreground/80 leading-relaxed">
             <section>
-              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">1. Cosa sono i cookie</h2>
+              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">1. Premessa</h2>
               <p>
-                I cookie sono piccoli file di testo memorizzati sul tuo dispositivo quando visiti un sito web. Servono a far funzionare i siti in modo corretto e a ricordare le tue preferenze.
+                Questa Cookie Policy descrive gli strumenti di memorizzazione utilizzati dal sito {COMPANY_LEGAL.site},
+                gestito da {COMPANY_LEGAL.name}. Il sito non utilizza cookie di profilazione, analytics, marketing o
+                tracciamento e non installa cookie di terze parti.
               </p>
             </section>
 
             <section>
-              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">2. Cookie che utilizziamo</h2>
+              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">2. Cookie e localStorage</h2>
+              <p>
+                Tecnicamente gli strumenti usati dal sito sono valori salvati nel <strong>localStorage</strong> del
+                browser, non cookie HTTP inviati al server a ogni richiesta. In questa informativa li descriviamo insieme
+                agli strumenti analoghi ai cookie, per trasparenza verso l'utente.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">3. Strumenti tecnici utilizzati</h2>
               <p className="mb-4">
-                Il sito maiaviaggi.it utilizza <strong>esclusivamente cookie tecnici</strong> necessari al funzionamento. Non utilizziamo cookie di profilazione, tracciamento o marketing.
+                Il sito utilizza esclusivamente due strumenti tecnici locali, necessari a ricordare preferenze espresse
+                dall'utente e a migliorare l'esperienza di navigazione.
               </p>
 
               <div className="p-4 bg-[#F5EFE1] rounded-lg">
-                <h3 className="font-heading font-semibold text-base text-foreground mb-2">Cookie tecnici essenziali</h3>
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-zinc-200">
-                      <th className="text-left py-2 font-medium">Nome</th>
-                      <th className="text-left py-2 font-medium">Scopo</th>
-                      <th className="text-left py-2 font-medium">Durata</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="border-b border-zinc-100">
-                      <td className="py-2 font-mono text-xs">cookie-consent</td>
-                      <td className="py-2">Ricorda la tua scelta sul banner cookie</td>
-                      <td className="py-2">Persistente</td>
-                    </tr>
-                    <tr>
-                      <td className="py-2 font-mono text-xs">maia-language</td>
-                      <td className="py-2">Ricorda la lingua selezionata</td>
-                      <td className="py-2">Persistente</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <h3 className="font-heading font-semibold text-base text-foreground mb-3">Tabella localStorage</h3>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-zinc-200">
+                        <th className="text-left py-2 pr-4 font-medium">Nome</th>
+                        <th className="text-left py-2 pr-4 font-medium">Tipologia</th>
+                        <th className="text-left py-2 pr-4 font-medium">Scopo</th>
+                        <th className="text-left py-2 font-medium">Durata</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b border-zinc-100">
+                        <td className="py-3 pr-4 font-mono text-xs">cookie-consent</td>
+                        <td className="py-3 pr-4">Tecnico locale</td>
+                        <td className="py-3 pr-4">Memorizza la scelta sul banner informativo cookie/localStorage con valore "accepted" o "rejected".</td>
+                        <td className="py-3">Fino a cancellazione dei dati del browser o nuova scelta dell'utente.</td>
+                      </tr>
+                      <tr>
+                        <td className="py-3 pr-4 font-mono text-xs">maia-language</td>
+                        <td className="py-3 pr-4">Tecnico locale</td>
+                        <td className="py-3 pr-4">Memorizza la lingua selezionata con valore "it", "en", "es", "fr" o "de".</td>
+                        <td className="py-3">Fino a cancellazione dei dati del browser o modifica della lingua.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </section>
 
             <section>
-              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">3. Cookie di terze parti</h2>
+              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">4. Cookie di profilazione e terze parti</h2>
               <p>
-                Al momento non utilizziamo servizi di terze parti che installano cookie sul tuo dispositivo. Qualora in futuro dovessimo integrare strumenti di analisi o social media, aggiorneremo questa policy.
+                Non utilizziamo cookie di profilazione, strumenti di analytics, pixel di marketing, sistemi di
+                tracciamento pubblicitario o cookie di terze parti. Non sono presenti Google Analytics o strumenti
+                analoghi.
               </p>
             </section>
 
             <section>
-              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">4. Come gestire i cookie</h2>
+              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">5. Consenso</h2>
               <p>
-                Puoi gestire o disabilitare i cookie dalle impostazioni del tuo browser. Tieni presente che disabilitare i cookie tecnici potrebbe compromettere alcune funzionalita' del sito (ad esempio, la scelta della lingua non verra' ricordata).
+                Gli strumenti indicati sono tecnici e funzionali alla navigazione; per questa tipologia non e' richiesto
+                il consenso preventivo. Il banner serve a informarti in modo chiaro e a registrare la tua preferenza
+                locale. Se scegli "Rifiuta", il sito salva solo tale scelta tecnica per non mostrarti nuovamente il
+                banner.
               </p>
             </section>
 
             <section>
-              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">5. Contatti</h2>
-              <p>Per domande sui cookie:</p>
-              <div className="mt-3 p-4 bg-[#F5EFE1] rounded-lg text-sm">
-                <p><strong>MAIA 4.0 SRL</strong></p>
-                <p>Email: info@maiaviaggi.it</p>
-                <p>Telefono: +39 06 40089596</p>
-                <p>Via Antonio Bertoloni 44, 00197 Roma</p>
+              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">6. Come gestire o cancellare i dati locali</h2>
+              <p>
+                Puoi cancellare i dati salvati nel localStorage dalle impostazioni del browser, eliminando i dati del
+                sito {COMPANY_LEGAL.site}. Dopo la cancellazione, il banner potra' ricomparire e la lingua potra' tornare
+                alla selezione predefinita.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">7. Contatti</h2>
+              <div className="p-4 bg-[#F5EFE1] rounded-lg text-sm space-y-1">
+                <p><strong>{COMPANY_LEGAL.name}</strong></p>
+                <p>{COMPANY_LEGAL.address}</p>
+                <p>P.IVA / C.F.: {COMPANY_LEGAL.vat}</p>
+                <p>Email: <a href={COMPANY_LEGAL.emailHref} className="text-[#821D30] hover:underline">{COMPANY_LEGAL.email}</a></p>
+                <p>Telefono: <a href={COMPANY_LEGAL.phoneHref} className="text-[#821D30] hover:underline">{COMPANY_LEGAL.phone}</a></p>
+                <p>Sito: {COMPANY_LEGAL.site}</p>
               </div>
             </section>
 
-            <p className="text-sm text-foreground/50 pt-4 border-t border-zinc-100">
+            <p className="text-sm text-foreground/50">
               Ultimo aggiornamento: maggio 2026
             </p>
           </div>

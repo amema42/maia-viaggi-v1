@@ -6,18 +6,19 @@ import { IMAGES } from '@/assets/images'
 import { Badge } from '@/components/ui/badge'
 import { ScrollReveal } from '@/components/ScrollReveal'
 import { modalOverlay, modalContent } from '@/lib/motion'
+import { useLanguage } from '@/lib/i18n'
 
 interface WorldMapProps {
   filterTags?: string[]
 }
 
 const AREA_FILTERS = [
-  { id: 'all', label: 'Tutte', icon: Globe },
-  { id: 'europa', label: 'Europa', icon: Landmark },
-  { id: 'africa', label: 'Africa', icon: Sun },
-  { id: 'asia', label: 'Asia', icon: Flower2 },
-  { id: 'americhe', label: 'Americhe', icon: Building },
-  { id: 'medioriente', label: 'Medio Oriente', icon: Star },
+  { id: 'all', labelKey: 'filterAll', icon: Globe },
+  { id: 'europa', labelKey: 'filterEurope', icon: Landmark },
+  { id: 'africa', labelKey: 'filterAfrica', icon: Sun },
+  { id: 'asia', labelKey: 'filterAsia', icon: Flower2 },
+  { id: 'americhe', labelKey: 'filterAmericas', icon: Building },
+  { id: 'medioriente', labelKey: 'filterMiddleEast', icon: Star },
 ]
 
 const getArea = (dest: typeof DESTINATIONS[0]) => {
@@ -52,6 +53,7 @@ const archetypeLabel = (id: string) => {
 }
 
 export function WorldMap({ filterTags = [] }: WorldMapProps) {
+  const { t } = useLanguage()
   const [selectedDestination, setSelectedDestination] = useState<string | null>(null)
   const [activeArea, setActiveArea] = useState('all')
 
@@ -101,7 +103,7 @@ export function WorldMap({ filterTags = [] }: WorldMapProps) {
               }`}
             >
               <Icon className="w-4 h-4" />
-              {area.label}
+              {t(area.labelKey as any)}
             </button>
           )
         })}
@@ -169,7 +171,7 @@ export function WorldMap({ filterTags = [] }: WorldMapProps) {
                       ))}
                     </div>
                     <div className="mt-3 text-xs font-medium flex items-center gap-1 text-[#821D30]">
-                      Scopri di più <span>&rarr;</span>
+                      {t('destLearnMore')} <span>&rarr;</span>
                     </div>
                   </div>
                 )}
@@ -183,7 +185,7 @@ export function WorldMap({ filterTags = [] }: WorldMapProps) {
       {filteredDestinations.length === 0 && (
         <div className="text-center py-16 text-zinc-400">
           <Map className="w-12 h-12 mx-auto mb-4 text-zinc-300" />
-          <p className="text-lg font-medium">Nessuna destinazione trovata</p>
+          <p className="text-lg font-medium">>{t('destNoResults')}</p>
           <button type="button"
             onClick={() => setActiveArea('all')}
             className="mt-4 px-6 py-2 rounded-full bg-[#821d30] text-white text-sm font-medium"
@@ -241,7 +243,7 @@ export function WorldMap({ filterTags = [] }: WorldMapProps) {
                 {destination.highlights?.length > 0 && (
                   <div className="mb-6">
                     <h3 className="font-heading font-semibold text-lg mb-3 flex items-center gap-2">
-                      <Heart className="w-4 h-4 text-[#CE5B20]" /> Da non perdere
+                      <Heart className="w-4 h-4 text-[#CE5B20]" /> {t('destHighlights')}
                     </h3>
                     <ul className="space-y-1.5">
                       {destination.highlights.map((h, i) => (
@@ -257,15 +259,15 @@ export function WorldMap({ filterTags = [] }: WorldMapProps) {
                 {/* Travel info */}
                 <div className="grid grid-cols-3 gap-3 mb-6 text-center">
                   <div className="bg-zinc-50 rounded-lg p-3">
-                    <p className="font-mono text-xs text-zinc-500 mb-1">periodo</p>
+                    <p className="font-mono text-xs text-zinc-500 mb-1">>{t('destPeriod')}</p>
                     <p className="text-sm font-medium">{destination.periodo}</p>
                   </div>
                   <div className="bg-zinc-50 rounded-lg p-3">
-                    <p className="font-mono text-xs text-zinc-500 mb-1">volo</p>
+                    <p className="font-mono text-xs text-zinc-500 mb-1">>{t('destFlight')}</p>
                     <p className="text-sm font-medium">{destination.volo}</p>
                   </div>
                   <div className="bg-zinc-50 rounded-lg p-3">
-                    <p className="font-mono text-xs text-zinc-500 mb-1">fuso</p>
+                    <p className="font-mono text-xs text-zinc-500 mb-1">>{t('destTimezone')}</p>
                     <p className="text-sm font-medium">{destination.fuso}</p>
                   </div>
                 </div>

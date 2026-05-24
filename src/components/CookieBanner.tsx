@@ -50,9 +50,8 @@ export function CookieBanner() {
                     Cookie tecnici, solo.
                   </h3>
                   <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                    Utilizziamo cookie tecnici necessari per il funzionamento del sito. 
-                    Non utilizziamo cookie di profilazione o tracciamento. 
-                    Continuando la navigazione accetti l'uso dei cookie necessari.{' '}
+                    Usiamo solo archiviazione locale tecnica (localStorage) per ricordare la scelta su questo avviso e la lingua selezionata.
+                    Nessun cookie HTTP di profilazione, analytics, marketing o tracciamento.{' '}
                     <Link to={ROUTE_PATHS.COOKIE} className="text-primary hover:underline font-semibold">
                       Leggi la Cookie Policy
                     </Link>

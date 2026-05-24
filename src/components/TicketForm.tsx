@@ -5,12 +5,14 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { type TicketFormData } from '@/lib/index'
+import { useLanguage } from '@/lib/i18n'
 
 interface TicketFormProps {
   onSubmit: (data: TicketFormData) => void
 }
 
 export function TicketForm({ onSubmit }: TicketFormProps) {
+  const { t } = useLanguage()
   const [formData, setFormData] = useState<TicketFormData>({
     destination: '',
     travelType: 'private',
@@ -57,11 +59,11 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
               <div>
                 <Label className="text-xs text-[#595142] font-medium mb-2 block font-mono lowercase">
-                  periodo di viaggio
+                  {t('formPeriod')}
                 </Label>
                 <Select value={travelMonth} onValueChange={setTravelMonth}>
                   <SelectTrigger className="h-11 border border-zinc-200 text-sm bg-white rounded-xl">
-                    <SelectValue placeholder="Seleziona mese" />
+                    <SelectValue placeholder={t('formSelectMonth')} />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="2026-04">Aprile 2026</SelectItem>
@@ -82,7 +84,7 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <Label className="text-xs text-[#595142] font-medium mb-2 block font-mono lowercase">passeggeri</Label>
+                  <Label className="text-xs text-[#595142] font-medium mb-2 block font-mono lowercase"{t('formPassengers')}</Label>
                   <Input
                     type="number"
                     min="1"
@@ -93,7 +95,7 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
                   />
                 </div>
                 <div>
-                  <Label className="text-xs text-[#595142] font-medium mb-2 block font-mono lowercase">tipo</Label>
+                  <Label className="text-xs text-[#595142] font-medium mb-2 block font-mono lowercase"{t('formType')}</Label>
                   <Select
                     value={formData.travelType}
                     onValueChange={(value) => setFormData({ ...formData, travelType: value as 'private' | 'group_adhoc' })}
@@ -102,8 +104,8 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="private">Privato</SelectItem>
-                      <SelectItem value="group_adhoc">Di Gruppo</SelectItem>
+                      <SelectItem value="private"{t('formPrivate')}</SelectItem>
+                      <SelectItem value="group_adhoc"{t('formGroup')}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -113,7 +115,7 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
             {/* Travel styles */}
             <div>
               <Label className="text-xs text-[#595142] font-medium mb-3 block font-mono lowercase">
-                tipologia viaggio
+                {t('formTravelType')}
               </Label>
               <div className="flex flex-wrap gap-2">
                 {travelStyleOptions.map((style) => (
@@ -147,7 +149,7 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
               className="h-12 px-8 text-sm font-medium bg-[#821d30] hover:bg-[#6E182A] transition-all disabled:opacity-40 w-full rounded-full"
             >
               <Plane className="w-4 h-4 mr-2" />
-              Trova la destinazione per me
+              {t('formSubmit')}
             </Button>
           </div>
         </div>

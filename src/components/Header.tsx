@@ -54,19 +54,18 @@ function LanguageDropdown() {
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const { language, setLanguage } = useLanguage()
+  const { language, setLanguage, t } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
   const navItems = [
-    { label: 'Home', href: '#hero' },
-    { label: 'Crea il tuo viaggio', href: '#hero' },
-    { label: 'Destinazioni', href: '#destinazioni-section' },
-    { label: 'Chi siamo', href: '#passport-section' },
+    { label: t('home'), href: '#hero' },
+    { label: t('createTrip'), href: '#hero' },
+    { label: t('destinations'), href: '#destinazioni-section' },
+    { label: t('about'), href: '#passport-section' },
   ]
 
   const scrollToSection = (href: string) => {
@@ -124,7 +123,7 @@ export function Header() {
                   rel="noopener noreferrer"
                   className="px-4 py-2 rounded-full text-[13px] font-medium text-zinc-600 transition-all duration-200 hover:bg-[#821D30]/8 hover:text-[#821D30] whitespace-nowrap"
                 >
-                  Contattaci
+                  {t('navContact')}
                 </a>
               </nav>
             </div>
@@ -197,13 +196,13 @@ export function Header() {
                     rel="noopener noreferrer"
                     className="block px-4 py-3 text-[#25D366] font-medium text-[15px] rounded-lg hover:bg-[#F5EFE1] transition-colors"
                   >
-                    Contattaci su WhatsApp
+                    {t('navContactWhatsApp')}
                   </a>
                 </nav>
 
                 {/* Mobile language selector */}
                 <div className="border-t border-zinc-100 p-4">
-                  <p className="font-mono text-xs text-zinc-400 lowercase mb-2 px-4">lingua</p>
+                  <p className="font-mono text-xs text-zinc-400 lowercase mb-2 px-4">{t('navLanguage')}</p>
                   <div className="flex flex-wrap gap-1 px-2">
                     {(Object.keys(languageNames) as Language[]).map((lang) => (
                       <button type="button"
