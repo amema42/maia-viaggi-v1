@@ -7,7 +7,7 @@ import { useLanguage, languageNames, type Language } from '@/lib/i18n'
 
 const WA_URL = 'https://wa.me/390640089596?text=Ciao%20MAIA%20Viaggi!%20Vorrei%20informazioni%20sui%20vostri%20servizi'
 
-const SECTIONS = ['hero', 'marocco-section', 'passport-section', 'destinazioni-section'] as const
+const SECTIONS = ['hero', 'viaggi-gruppo-section', 'passport-section', 'destinazioni-section'] as const
 
 function LanguageDropdown() {
   const { language, setLanguage } = useLanguage()
@@ -77,7 +77,7 @@ export function Header() {
       if (!el) return
       const obs = new IntersectionObserver(
         ([entry]) => { if (entry.isIntersecting) setActiveSection(id) },
-        { threshold: 0.3, rootMargin: '-72px 0px 0px 0px' }
+        { threshold: 0.15, rootMargin: '-72px 0px -40% 0px' }
       )
       obs.observe(el)
       observers.push(obs)
@@ -115,8 +115,8 @@ export function Header() {
 
   const navItems = [
     { label: t('home'), sectionId: 'hero' },
-    { label: t('destinations'), sectionId: 'destinazioni-section' },
     { label: t('about'), sectionId: 'passport-section' },
+    { label: t('destinations'), sectionId: 'destinazioni-section' },
   ]
 
   const scrollToSection = useCallback((sectionId: string) => {

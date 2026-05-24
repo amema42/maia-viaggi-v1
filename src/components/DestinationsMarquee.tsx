@@ -20,6 +20,7 @@ export function DestinationsMarquee() {
       <button type="button"
         key={item.id}
         onClick={scrollToDestinations}
+        aria-label={`Vai a ${item.name}`}
         className="relative flex-shrink-0 w-[160px] h-[100px] rounded-lg overflow-hidden group cursor-pointer"
       >
         <img

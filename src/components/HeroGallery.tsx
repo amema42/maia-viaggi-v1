@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { IMAGES } from '@/assets/images'
+import { useLanguage } from '@/lib/i18n'
 
 const HERO_IMAGES = [
   { src: IMAGES.MALDIVES_3, alt: 'Maldive', destId: 'maldives' },
@@ -25,6 +26,7 @@ interface HeroGalleryProps {
 }
 
 export function HeroGallery({ onDestinationClick }: HeroGalleryProps) {
+  const { t } = useLanguage()
   const [images] = useState(() => shuffle(HERO_IMAGES))
   const [current, setCurrent] = useState(0)
 
@@ -74,7 +76,7 @@ export function HeroGallery({ onDestinationClick }: HeroGalleryProps) {
           {images[current]?.alt}
         </p>
         <p className="text-xs text-white/70 mt-0.5 group-hover:text-white/90 transition-colors">
-          clicca per scoprire
+          {t('heroClickDiscover')}
         </p>
       </div>
 

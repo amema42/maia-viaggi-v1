@@ -305,7 +305,7 @@ export function WorldMap({ filterTags = [], externalSelectedId, onExternalClear 
                   {t('destWriteUs')} {destination.name} &rarr;
                 </a>
                 <p className="text-xs text-foreground/40 text-center mt-2">
-                  Ti rispondiamo su WhatsApp con proposta e preventivo
+                  {t('destWaNote')}
                 </p>
               </div>
             </motion.div>

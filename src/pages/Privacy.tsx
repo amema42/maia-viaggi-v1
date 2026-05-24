@@ -101,7 +101,7 @@ export default function Privacy() {
             </section>
 
             <section>
-              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">5. Modalita' del trattamento</h2>
+              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">5. Modalità del trattamento</h2>
               <p>
                 I dati sono trattati con strumenti informatici e organizzativi adeguati, nel rispetto dei principi di
                 liceità, correttezza, trasparenza, minimizzazione, esattezza, limitazione della conservazione,

@@ -34,8 +34,8 @@ export default function Home() {
   useEffect(() => {
     const check = () => setCookieDismissed(!!localStorage.getItem('cookie-consent'))
     window.addEventListener('storage', check)
-    const interval = setInterval(check, 1000)
-    return () => { window.removeEventListener('storage', check); clearInterval(interval) }
+    document.addEventListener('click', check)
+    return () => { window.removeEventListener('storage', check); document.removeEventListener('click', check) }
   }, [])
 
   useEffect(() => {
@@ -188,7 +188,7 @@ export default function Home() {
                 Richiedi un preventivo su WhatsApp
               </a>
               <p className="text-[11px] text-foreground/40 mt-2">
-                I dati selezionati verranno inseriti nel messaggio WhatsApp e gestiti sulla piattaforma WhatsApp/Meta.
+                {t('waPrivacyNote')}
               </p>
             </div>
           )}

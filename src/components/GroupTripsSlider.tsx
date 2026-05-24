@@ -96,7 +96,7 @@ export function GroupTripsSlider() {
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-5 md:px-12 h-full pt-20 pb-8">
         <div className="max-w-4xl mx-auto w-full">
           <p className="font-heading italic text-sm md:text-base text-white/80 mb-4">
-            - {t('marrakechEyebrow')}
+            - {t('groupTripsEyebrow')}
           </p>
 
           {/* Destination name with crossfade */}
@@ -135,7 +135,7 @@ export function GroupTripsSlider() {
             rel="noopener noreferrer"
             className="inline-block bg-[#CE5B20] text-white px-8 py-3 md:px-12 md:py-4 rounded-full text-base md:text-lg font-medium shadow-xl transition-all duration-200 hover:scale-[1.02] hover:shadow-2xl active:scale-[0.98]"
           >
-            Scrivici per date e dettagli
+            {t('groupTripsCta')}
           </a>
 
           {/* Dot indicators */}
