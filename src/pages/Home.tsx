@@ -163,6 +163,9 @@ export default function Home() {
             >
               Marrakech
             </h2>
+            <p className="text-white/70 text-sm md:text-base max-w-xl mx-auto mb-4 leading-relaxed">
+              Stiamo organizzando un viaggio di gruppo a Marrakech. Date, itinerario e dettagli in definizione. Scrivici per saperne di più e riservare il tuo posto.
+            </p>
             <div className="flex flex-wrap justify-center gap-2 mb-8">
               {[t('marrakechTag2'), 'Sahara', 'Hammam', t('marrakechTag3')].map((tag) => (
                 <span key={tag} className="text-sm px-3 py-1.5 rounded-full bg-white/15 text-white">
@@ -171,12 +174,12 @@ export default function Home() {
               ))}
             </div>
             <a
-              href="https://wa.me/390640089596?text=Ciao%20MAIA!%20Sono%20interessato%20al%20viaggio%20di%20gruppo%20a%20Marrakech.%20Potete%20darmi%20maggiori%20informazioni%3F"
+              href="https://wa.me/390640089596?text=Ciao%20MAIA!%20Sono%20interessato%20al%20viaggio%20di%20gruppo%20a%20Marrakech.%20Potete%20darmi%20maggiori%20informazioni%20su%20date%20e%20programma%3F"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-[#CE5B20] text-white px-8 py-3 md:px-12 md:py-4 rounded-full text-base md:text-lg font-medium shadow-xl transition-all duration-200 hover:scale-[1.02] hover:shadow-2xl active:scale-[0.98]"
             >
-              {t('marrakechCta')}
+              Scrivici per date e dettagli
             </a>
           </ScrollReveal>
         </div>

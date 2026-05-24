@@ -291,8 +291,11 @@ export function WorldMap({ filterTags = [] }: WorldMapProps) {
                   rel="noopener noreferrer"
                   className="block w-full py-3 rounded-full font-medium text-white text-base text-center transition-all duration-200 hover:shadow-lg hover:-translate-y-px bg-[#821D30]"
                 >
-                  Scrivici per {destination.name} &rarr;
+                  {t('destWriteUs')} {destination.name} &rarr;
                 </a>
+                <p className="text-xs text-foreground/40 text-center mt-2">
+                  Ti rispondiamo su WhatsApp con proposta e preventivo
+                </p>
               </div>
             </motion.div>
           </motion.div>
