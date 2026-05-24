@@ -79,6 +79,7 @@ export function CookieBanner() {
 
               {/* Pulsante chiudi */}
               <button
+                type="button"
                 onClick={rejectCookies}
                 className="absolute top-2 right-2 p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full transition-colors"
                 aria-label="Chiudi"
