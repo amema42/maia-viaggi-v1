@@ -1,9 +1,11 @@
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { PageMeta } from '@/components/PageMeta'
 
 export default function NotFound() {
   return (
     <div className="min-h-screen flex flex-col section-cream">
+      <PageMeta title="Pagina non trovata" description="La pagina cercata non esiste." path="/404" />
       <Header />
 
       <main className="flex-1 flex items-center justify-center px-4 pt-20">

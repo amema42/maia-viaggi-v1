@@ -5,10 +5,12 @@ import { Footer } from '@/components/Footer'
 import { COMPANY_LEGAL } from '@/lib/legal'
 import { ROUTE_PATHS } from '@/lib/index'
 import { springPresets } from '@/lib/motion'
+import { PageMeta } from '@/components/PageMeta'
 
 export default function Privacy() {
   return (
     <div className="min-h-screen section-cream">
+      <PageMeta title="Privacy Policy" description="Informativa privacy MAIA Viaggi ai sensi del GDPR." path="/privacy" />
       <Header />
 
       <main className="container mx-auto px-4 py-24 md:py-32">

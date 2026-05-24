@@ -65,6 +65,19 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) return
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsMobileMenuOpen(false)
+    }
+    document.addEventListener('keydown', handleEsc)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', handleEsc)
+      document.body.style.overflow = ''
+    }
+  }, [isMobileMenuOpen])
+
   const navItems = [
     { label: t('home'), href: '#hero' },
     { label: t('createTrip'), href: '#hero' },

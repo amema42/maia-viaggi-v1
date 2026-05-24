@@ -58,12 +58,15 @@ export function WorldMap({ filterTags = [] }: WorldMapProps) {
   const [activeArea, setActiveArea] = useState('all')
 
   useEffect(() => {
+    if (!selectedDestination) return
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setSelectedDestination(null)
     }
-    if (selectedDestination) {
-      document.addEventListener('keydown', handleEsc)
-      return () => document.removeEventListener('keydown', handleEsc)
+    document.addEventListener('keydown', handleEsc)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', handleEsc)
+      document.body.style.overflow = ''
     }
   }, [selectedDestination])
 
@@ -212,6 +215,9 @@ export function WorldMap({ filterTags = [] }: WorldMapProps) {
               initial="hidden"
               animate="visible"
               exit="exit"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="dest-modal-title"
               onClick={(e) => e.stopPropagation()}
               className="bg-background rounded-2xl overflow-hidden max-w-2xl w-full max-h-[88vh] overflow-y-auto shadow-2xl"
             >
@@ -229,7 +235,7 @@ export function WorldMap({ filterTags = [] }: WorldMapProps) {
                   <X className="w-4 h-4" />
                 </button>
                 <div className="absolute bottom-5 left-6">
-                  <h2 className="text-3xl md:text-4xl font-heading font-semibold text-white">{destination.name}</h2>
+                  <h2 id="dest-modal-title" className="text-3xl md:text-4xl font-heading font-semibold text-white">{destination.name}</h2>
                   <p className="text-white/80 text-sm mt-1 flex items-center gap-1">
                     <MapPin className="w-4 h-4" /> {destination.country}
                   </p>

@@ -17,12 +17,15 @@ export function ArchetypeBands() {
   const [selectedMember, setSelectedMember] = useState<string | null>(null)
 
   useEffect(() => {
+    if (!selectedMember) return
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setSelectedMember(null)
     }
-    if (selectedMember) {
-      document.addEventListener('keydown', handleEsc)
-      return () => document.removeEventListener('keydown', handleEsc)
+    document.addEventListener('keydown', handleEsc)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', handleEsc)
+      document.body.style.overflow = ''
     }
   }, [selectedMember])
 
@@ -119,6 +122,9 @@ export function ArchetypeBands() {
               initial="hidden"
               animate="visible"
               exit="exit"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="team-modal-title"
               className="relative bg-[#F5F1E8] rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
@@ -151,7 +157,7 @@ export function ArchetypeBands() {
                         <p className="font-heading italic text-sm mb-1" style={{ color: band.color }}>
                           {band.role}
                         </p>
-                        <h3 className="font-heading text-4xl md:text-5xl font-medium text-white leading-tight">
+                        <h3 id="team-modal-title" className="font-heading text-4xl md:text-5xl font-medium text-white leading-tight">
                           {selectedMember}
                         </h3>
                       </div>
