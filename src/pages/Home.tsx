@@ -7,6 +7,7 @@ import { ArchetypeBands } from '@/components/ArchetypeBands'
 import { DestinationsMarquee } from '@/components/DestinationsMarquee'
 import { BrushDivider } from '@/components/BrushDivider'
 import { PostalStamp } from '@/components/PostalStamp'
+import { HeroGallery } from '@/components/HeroGallery'
 import { EditorialHeading } from '@/components/EditorialHeading'
 import { ScrollReveal } from '@/components/ScrollReveal'
 import { Footer } from '@/components/Footer'
@@ -123,15 +124,7 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ ...springPresets.gentle, delay: 0.2 }}
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[3/4]">
-                <img
-                  src={IMAGES.BALI_1}
-                  alt="Viaggio cinematico"
-                  className="w-full h-full object-cover photo-editorial"
-                  loading="eager"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-              </div>
+              <HeroGallery />
               <PostalStamp className="absolute -top-4 -right-4 md:top-4 md:right-[-2rem] z-10" />
             </motion.div>
           </div>
