@@ -99,11 +99,11 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
           <div className="p-5 md:p-7 space-y-5">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
               <div>
-                <Label className="text-xs text-[#595142] font-medium mb-2 block font-mono lowercase">
+                <Label htmlFor="travel-period" className="text-xs text-[#595142] font-medium mb-2 block font-mono lowercase">
                   {t('formPeriod')}
                 </Label>
                 <Select value={travelMonth} onValueChange={setTravelMonth}>
-                  <SelectTrigger className="h-11 border border-zinc-200 text-sm bg-white rounded-xl">
+                  <SelectTrigger id="travel-period" className="h-11 border border-zinc-200 text-sm bg-white rounded-xl">
                     <SelectValue placeholder={t('formSelectMonth')} />
                   </SelectTrigger>
                   <SelectContent>
@@ -116,8 +116,9 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <Label className="text-xs text-[#595142] font-medium mb-2 block font-mono lowercase">{t('formPassengers')}</Label>
+                  <Label htmlFor="passengers" className="text-xs text-[#595142] font-medium mb-2 block font-mono lowercase">{t('formPassengers')}</Label>
                   <Input
+                    id="passengers"
                     type="number"
                     min="1"
                     max="20"
@@ -127,12 +128,12 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
                   />
                 </div>
                 <div>
-                  <Label className="text-xs text-[#595142] font-medium mb-2 block font-mono lowercase">{t('formType')}</Label>
+                  <Label htmlFor="travel-type" className="text-xs text-[#595142] font-medium mb-2 block font-mono lowercase">{t('formType')}</Label>
                   <Select
                     value={formData.travelType}
                     onValueChange={(value) => setFormData({ ...formData, travelType: value as 'private' | 'group_adhoc' })}
                   >
-                    <SelectTrigger className="h-11 border border-zinc-200 text-xs rounded-xl">
+                    <SelectTrigger id="travel-type" className="h-11 border border-zinc-200 text-xs rounded-xl">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -145,10 +146,10 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
             </div>
 
             <div>
-              <Label className="text-xs text-[#595142] font-medium mb-3 block font-mono lowercase">
+              <Label id="travel-styles-label" className="text-xs text-[#595142] font-medium mb-3 block font-mono lowercase">
                 {t('formTravelType')}
               </Label>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2" role="group" aria-labelledby="travel-styles-label">
                 {TRAVEL_STYLES.map(({ key }) => {
                   const label = t(key as any)
                   const selected = selectedKeys.includes(key)

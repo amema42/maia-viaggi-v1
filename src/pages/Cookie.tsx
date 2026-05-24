@@ -86,11 +86,13 @@ export default function Cookie() {
             </section>
 
             <section>
-              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">4. Cookie di profilazione e terze parti</h2>
+              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">4. Cookie di profilazione, analytics e terze parti</h2>
               <p>
-                Non utilizziamo cookie di profilazione, strumenti di analytics, pixel di marketing, sistemi di
-                tracciamento pubblicitario o cookie di terze parti. Non sono presenti Google Analytics o strumenti
-                analoghi.
+                Il sito non installa cookie HTTP di profilazione, analytics, marketing o tracciamento pubblicitario.
+                Non sono presenti Google Analytics o strumenti analoghi. Alcune risorse esterne (font da Google Fonts,
+                immagini da servizi media) possono generare richieste tecniche verso fornitori terzi, come indicato
+                nella Privacy Policy. Queste richieste non installano cookie sul dispositivo dell'utente ma possono
+                comportare il trattamento di dati tecnici (es. indirizzo IP) da parte dei rispettivi fornitori.
               </p>
             </section>
 

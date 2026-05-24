@@ -266,7 +266,7 @@ export function WorldMap({ filterTags = [] }: WorldMapProps) {
                 )}
 
                 {/* Travel info */}
-                <div className="grid grid-cols-3 gap-3 mb-6 text-center">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6 text-center">
                   <div className="bg-zinc-50 rounded-lg p-3">
                     <p className="font-mono text-xs text-zinc-500 mb-1">{t('destPeriod')}</p>
                     <p className="text-sm font-medium">{destination.periodo}</p>

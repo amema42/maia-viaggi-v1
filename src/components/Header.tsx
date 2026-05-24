@@ -100,6 +100,7 @@ export function Header() {
       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus() }
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus() }
     }
+    const trigger = triggerRef.current
     document.addEventListener('keydown', handleEsc)
     document.addEventListener('keydown', handleTab)
     document.body.style.overflow = 'hidden'
@@ -108,7 +109,7 @@ export function Header() {
       document.removeEventListener('keydown', handleEsc)
       document.removeEventListener('keydown', handleTab)
       document.body.style.overflow = ''
-      triggerRef.current?.focus()
+      trigger?.focus()
     }
   }, [isMobileMenuOpen])
 
