@@ -37,7 +37,7 @@ export function EditorialHeading({
     <ScrollReveal className={`${alignClass} ${className}`}>
       {eyebrow && (
         <p className="font-heading italic text-sm md:text-base text-[#DCB38C] mb-3">
-          — {eyebrow}
+          - {eyebrow}
         </p>
       )}
       <h2

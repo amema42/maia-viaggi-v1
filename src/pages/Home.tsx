@@ -23,6 +23,7 @@ export default function Home() {
   const { t } = useLanguage()
   const [selectedTags, setSelectedTags] = useState<string[]>([])
   const [heroVisible, setHeroVisible] = useState(false)
+  const [heroDestination, setHeroDestination] = useState<string | null>(null)
   const [cookieDismissed, setCookieDismissed] = useState(() => !!localStorage.getItem('cookie-consent'))
 
   useEffect(() => {
@@ -75,7 +76,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <PageMeta
-        title="MAIA Viaggi — La persona, prima della meta"
+        title="MAIA Viaggi - La persona, prima della meta"
         description="Agenzia di viaggi a Roma. 20 destinazioni, 4 consulenti, un viaggio costruito attorno a te."
         path="/"
       />
@@ -93,7 +94,7 @@ export default function Home() {
               transition={springPresets.gentle}
             >
               <p className="font-heading italic text-sm md:text-base text-[#DCB38C] mb-4">
-                &mdash; {t('heroEyebrow')}
+                - {t('heroEyebrow')}
               </p>
               <h1
                 className={`font-heading font-semibold tracking-tight leading-[1.05] mb-6 ${heroVisible ? 'visible' : ''}`}
@@ -124,7 +125,7 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ ...springPresets.gentle, delay: 0.2 }}
             >
-              <HeroGallery />
+              <HeroGallery onDestinationClick={(id) => setHeroDestination(id)} />
               <PostalStamp className="absolute -top-4 -right-4 md:top-4 md:right-[-2rem] z-10" />
             </motion.div>
           </div>
@@ -148,7 +149,7 @@ export default function Home() {
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-5 md:px-12 h-full pt-20 pb-8">
           <ScrollReveal className="max-w-4xl mx-auto w-full">
             <p className="font-heading italic text-sm md:text-base text-white/80 mb-4">
-              &mdash; {t('marrakechEyebrow')}
+              - {t('marrakechEyebrow')}
             </p>
             <h2
               className="font-heading font-semibold text-white leading-[1.05] mb-4"
@@ -209,7 +210,11 @@ export default function Home() {
           >
             {t('destTitle')}
           </EditorialHeading>
-          <WorldMap filterTags={selectedTags} />
+          <WorldMap
+            filterTags={selectedTags}
+            externalSelectedId={heroDestination}
+            onExternalClear={() => setHeroDestination(null)}
+          />
 
           {lastSubmit && (
             <div className="mt-10 text-center">
@@ -236,7 +241,7 @@ export default function Home() {
       <section className="section-cream-deep py-16 md:py-20">
         <div className="container mx-auto px-4 text-center">
           <ScrollReveal>
-            <p className="font-heading italic text-sm text-[#DCB38C] mb-3">&mdash; {t('ctaEyebrow')}</p>
+            <p className="font-heading italic text-sm text-[#DCB38C] mb-3">- {t('ctaEyebrow')}</p>
             <h2 className="font-heading font-semibold text-2xl md:text-4xl mb-6 leading-tight">
               {t('ctaTitle')}
             </h2>

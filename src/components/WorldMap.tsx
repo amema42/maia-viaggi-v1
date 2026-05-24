@@ -10,6 +10,8 @@ import { useLanguage } from '@/lib/i18n'
 
 interface WorldMapProps {
   filterTags?: string[]
+  externalSelectedId?: string | null
+  onExternalClear?: () => void
 }
 
 const AREA_FILTERS = [
@@ -52,10 +54,17 @@ const archetypeLabel = (id: string) => {
   return 'neutra'
 }
 
-export function WorldMap({ filterTags = [] }: WorldMapProps) {
+export function WorldMap({ filterTags = [], externalSelectedId, onExternalClear }: WorldMapProps) {
   const { t } = useLanguage()
   const [selectedDestination, setSelectedDestination] = useState<string | null>(null)
   const [activeArea, setActiveArea] = useState('all')
+
+  useEffect(() => {
+    if (externalSelectedId) {
+      setSelectedDestination(externalSelectedId)
+      onExternalClear?.()
+    }
+  }, [externalSelectedId, onExternalClear])
 
   useEffect(() => {
     if (!selectedDestination) return

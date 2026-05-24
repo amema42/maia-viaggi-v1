@@ -10,7 +10,7 @@ const BASE_URL = 'https://maiaviaggi.it'
 
 export function PageMeta({ title, description, path }: PageMetaProps) {
   const url = `${BASE_URL}${path}`
-  const fullTitle = path === '/' ? title : `${title} — MAIA Viaggi`
+  const fullTitle = path === '/' ? title : `${title} - MAIA Viaggi`
 
   return (
     <Helmet>

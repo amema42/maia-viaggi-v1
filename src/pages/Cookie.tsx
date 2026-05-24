@@ -22,7 +22,7 @@ export default function Cookie() {
           animate={{ opacity: 1, y: 0 }}
           transition={springPresets.gentle}
         >
-          <p className="font-heading italic text-sm text-[#DCB38C] mb-3">&mdash; informativa</p>
+          <p className="font-heading italic text-sm text-[#DCB38C] mb-3">- informativa</p>
           <h1 className="font-heading text-4xl md:text-5xl font-semibold text-[#821D30] mb-8">
             Cookie Policy
           </h1>
