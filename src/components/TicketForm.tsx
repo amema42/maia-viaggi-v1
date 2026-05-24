@@ -156,6 +156,7 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
                     <button
                       key={key}
                       type="button"
+                      aria-pressed={selected}
                       onClick={() => toggleStyle(key)}
                       className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border whitespace-nowrap transition-all duration-200 ${
                         selected

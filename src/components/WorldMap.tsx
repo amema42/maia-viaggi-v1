@@ -98,6 +98,7 @@ export function WorldMap({ filterTags = [] }: WorldMapProps) {
           return (
             <button type="button"
               key={area.id}
+              aria-pressed={activeArea === area.id}
               onClick={() => setActiveArea(area.id)}
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium border transition-all duration-200 ${
                 activeArea === area.id
@@ -207,7 +208,7 @@ export function WorldMap({ filterTags = [] }: WorldMapProps) {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 z-70 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
             onClick={() => setSelectedDestination(null)}
           >
             <motion.div

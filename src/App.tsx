@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { MotionConfig } from "framer-motion";
 import { CookieBanner } from "@/components/CookieBanner";
+import { ScrollManager } from "@/components/ScrollManager";
 import Home from "./pages/Home";
 import Privacy from "./pages/Privacy";
 import Cookie from "./pages/Cookie";
@@ -14,6 +15,7 @@ const App = () => (
     <TooltipProvider>
       <MotionConfig reducedMotion="user">
         <BrowserRouter>
+          <ScrollManager />
           <CookieBanner />
           <Routes>
             <Route path="/" element={<Home />} />

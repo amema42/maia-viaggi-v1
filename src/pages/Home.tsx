@@ -231,6 +231,9 @@ export default function Home() {
                 </svg>
                 Richiedi un preventivo su WhatsApp
               </a>
+              <p className="text-[11px] text-foreground/40 mt-2">
+                I dati selezionati verranno inseriti nel messaggio WhatsApp e gestiti sulla piattaforma WhatsApp/Meta.
+              </p>
             </div>
           )}
         </div>

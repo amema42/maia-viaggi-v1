@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { ArrowLeft } from 'lucide-react'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { COMPANY_LEGAL } from '@/lib/legal'
@@ -14,6 +15,9 @@ export default function Terms() {
       <Header />
 
       <main className="container mx-auto px-4 py-24 md:py-32">
+        <Link to="/" className="inline-flex items-center gap-2 text-sm text-[#821D30] hover:underline mb-6 font-medium">
+          <ArrowLeft className="w-4 h-4" /> Torna alla home
+        </Link>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
