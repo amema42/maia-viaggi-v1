@@ -279,7 +279,7 @@ export const DESTINATIONS: Destination[] = [
     archetype: 'adventurous',
     description: 'La città che non dorme mai. Shopping, arte contemporanea e skyline iconico per un\'esperienza metropolitana.',
     imageKey: 'NEWYORK_1',
-    highlights: ['Central Park', 'Times Square', 'Statua della Libertà],
+    highlights: ['Central Park', 'Times Square', 'Statua della Liberta'],
     tags: ['City break', 'Shopping'],
     periodo: 'Apr-Giu / Set-Nov',
     clima: 'Continentale umido',
