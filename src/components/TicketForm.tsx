@@ -84,7 +84,7 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <Label className="text-xs text-[#595142] font-medium mb-2 block font-mono lowercase"{t('formPassengers')}</Label>
+                  <Label className="text-xs text-[#595142] font-medium mb-2 block font-mono lowercase">{t('formPassengers')}</Label>
                   <Input
                     type="number"
                     min="1"
@@ -95,7 +95,7 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
                   />
                 </div>
                 <div>
-                  <Label className="text-xs text-[#595142] font-medium mb-2 block font-mono lowercase"{t('formType')}</Label>
+                  <Label className="text-xs text-[#595142] font-medium mb-2 block font-mono lowercase">{t('formType')}</Label>
                   <Select
                     value={formData.travelType}
                     onValueChange={(value) => setFormData({ ...formData, travelType: value as 'private' | 'group_adhoc' })}
@@ -104,8 +104,8 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="private"{t('formPrivate')}</SelectItem>
-                      <SelectItem value="group_adhoc"{t('formGroup')}</SelectItem>
+                      <SelectItem value="private">{t('formPrivate')}</SelectItem>
+                      <SelectItem value="group_adhoc">{t('formGroup')}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>

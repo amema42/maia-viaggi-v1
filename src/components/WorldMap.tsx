@@ -185,12 +185,12 @@ export function WorldMap({ filterTags = [] }: WorldMapProps) {
       {filteredDestinations.length === 0 && (
         <div className="text-center py-16 text-zinc-400">
           <Map className="w-12 h-12 mx-auto mb-4 text-zinc-300" />
-          <p className="text-lg font-medium">>{t('destNoResults')}</p>
+          <p className="text-lg font-medium">{t('destNoResults')}</p>
           <button type="button"
             onClick={() => setActiveArea('all')}
             className="mt-4 px-6 py-2 rounded-full bg-[#821d30] text-white text-sm font-medium"
           >
-            Mostra tutte
+            {t('destShowAll')}
           </button>
         </div>
       )}
@@ -259,15 +259,15 @@ export function WorldMap({ filterTags = [] }: WorldMapProps) {
                 {/* Travel info */}
                 <div className="grid grid-cols-3 gap-3 mb-6 text-center">
                   <div className="bg-zinc-50 rounded-lg p-3">
-                    <p className="font-mono text-xs text-zinc-500 mb-1">>{t('destPeriod')}</p>
+                    <p className="font-mono text-xs text-zinc-500 mb-1">{t('destPeriod')}</p>
                     <p className="text-sm font-medium">{destination.periodo}</p>
                   </div>
                   <div className="bg-zinc-50 rounded-lg p-3">
-                    <p className="font-mono text-xs text-zinc-500 mb-1">>{t('destFlight')}</p>
+                    <p className="font-mono text-xs text-zinc-500 mb-1">{t('destFlight')}</p>
                     <p className="text-sm font-medium">{destination.volo}</p>
                   </div>
                   <div className="bg-zinc-50 rounded-lg p-3">
-                    <p className="font-mono text-xs text-zinc-500 mb-1">>{t('destTimezone')}</p>
+                    <p className="font-mono text-xs text-zinc-500 mb-1">{t('destTimezone')}</p>
                     <p className="text-sm font-medium">{destination.fuso}</p>
                   </div>
                 </div>
