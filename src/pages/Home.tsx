@@ -10,10 +10,10 @@ import { PostalStamp } from '@/components/PostalStamp'
 import { HeroGallery } from '@/components/HeroGallery'
 import { EditorialHeading } from '@/components/EditorialHeading'
 import { ScrollReveal } from '@/components/ScrollReveal'
+import { GroupTripsSlider } from '@/components/GroupTripsSlider'
 import { Footer } from '@/components/Footer'
 import { PageMeta } from '@/components/PageMeta'
 import { TicketFormData } from '@/lib/index'
-import { IMAGES } from '@/assets/images'
 import { useLanguage } from '@/lib/i18n'
 import { springPresets } from '@/lib/motion'
 
@@ -134,50 +134,8 @@ export default function Home() {
 
       <BrushDivider />
 
-      {/* Marrakech -- full-bleed cinematic */}
-      <section id="marocco-section" className="relative overflow-hidden" style={{ height: '100svh' }}>
-        <div className="absolute inset-0">
-          <img
-            src={IMAGES.MARRAKECH_GROUP_REALISTIC_20260401_225943_169}
-            alt="Gruppo a Marrakech"
-            className="w-full h-full object-cover object-center photo-editorial"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20" />
-        </div>
-
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-5 md:px-12 h-full pt-20 pb-8">
-          <ScrollReveal className="max-w-4xl mx-auto w-full">
-            <p className="font-heading italic text-sm md:text-base text-white/80 mb-4">
-              - {t('marrakechEyebrow')}
-            </p>
-            <h2
-              className="font-heading font-semibold text-white leading-[1.05] mb-4"
-              style={{ fontSize: 'clamp(3rem, 12vw, 7rem)' }}
-            >
-              Marrakech
-            </h2>
-            <p className="text-white/70 text-sm md:text-base max-w-xl mx-auto mb-4 leading-relaxed">
-              Stiamo organizzando un viaggio di gruppo a Marrakech. Date, itinerario e dettagli in definizione. Scrivici per saperne di più e riservare il tuo posto.
-            </p>
-            <div className="flex flex-wrap justify-center gap-2 mb-8">
-              {[t('marrakechTag2'), 'Sahara', 'Hammam', t('marrakechTag3')].map((tag) => (
-                <span key={tag} className="text-sm px-3 py-1.5 rounded-full bg-white/15 text-white">
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <a
-              href="https://wa.me/390640089596?text=Ciao%20MAIA!%20Sono%20interessato%20al%20viaggio%20di%20gruppo%20a%20Marrakech.%20Potete%20darmi%20maggiori%20informazioni%20su%20date%20e%20programma%3F"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-[#CE5B20] text-white px-8 py-3 md:px-12 md:py-4 rounded-full text-base md:text-lg font-medium shadow-xl transition-all duration-200 hover:scale-[1.02] hover:shadow-2xl active:scale-[0.98]"
-            >
-              Scrivici per date e dettagli
-            </a>
-          </ScrollReveal>
-        </div>
-      </section>
+      {/* Viaggi di gruppo -- slider automatico */}
+      <GroupTripsSlider />
 
       <BrushDivider flip color="#821D30" />
 

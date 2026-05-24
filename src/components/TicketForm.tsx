@@ -96,15 +96,15 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
             boxShadow: '0 4px 24px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.03)',
           }}
         >
-          {/* Sezione 1: quando e con chi */}
-          <div className="p-6 md:p-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              <div className="md:col-span-1">
-                <Label htmlFor="travel-period" className="text-[11px] text-[#595142]/70 font-medium mb-2.5 block font-mono lowercase tracking-wide">
+          <div className="px-5 py-5 md:px-7 md:py-6 space-y-4">
+            {/* Quando e con chi */}
+            <div className="grid grid-cols-3 gap-3 md:gap-4">
+              <div>
+                <Label htmlFor="travel-period" className="text-[11px] text-[#595142]/70 font-medium mb-2 block font-mono lowercase tracking-wide">
                   {t('formPeriod')}
                 </Label>
                 <Select value={travelMonth} onValueChange={setTravelMonth}>
-                  <SelectTrigger id="travel-period" className="h-12 border border-zinc-200 text-sm bg-white rounded-xl">
+                  <SelectTrigger id="travel-period" className="h-11 border border-zinc-200 text-sm bg-white rounded-xl">
                     <SelectValue placeholder={t('formSelectMonth')} />
                   </SelectTrigger>
                   <SelectContent>
@@ -114,9 +114,8 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
                   </SelectContent>
                 </Select>
               </div>
-
               <div>
-                <Label htmlFor="passengers" className="text-[11px] text-[#595142]/70 font-medium mb-2.5 block font-mono lowercase tracking-wide">
+                <Label htmlFor="passengers" className="text-[11px] text-[#595142]/70 font-medium mb-2 block font-mono lowercase tracking-wide">
                   {t('formPassengers')}
                 </Label>
                 <Input
@@ -126,19 +125,18 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
                   max="20"
                   value={formData.passengers}
                   onChange={(e) => setFormData({ ...formData, passengers: parseInt(e.target.value) || 1 })}
-                  className="h-12 border border-zinc-200 text-sm text-center rounded-xl"
+                  className="h-11 border border-zinc-200 text-sm text-center rounded-xl"
                 />
               </div>
-
               <div>
-                <Label htmlFor="travel-type" className="text-[11px] text-[#595142]/70 font-medium mb-2.5 block font-mono lowercase tracking-wide">
+                <Label htmlFor="travel-type" className="text-[11px] text-[#595142]/70 font-medium mb-2 block font-mono lowercase tracking-wide">
                   {t('formType')}
                 </Label>
                 <Select
                   value={formData.travelType}
                   onValueChange={(value) => setFormData({ ...formData, travelType: value as 'private' | 'group_adhoc' })}
                 >
-                  <SelectTrigger id="travel-type" className="h-12 border border-zinc-200 text-sm rounded-xl">
+                  <SelectTrigger id="travel-type" className="h-11 border border-zinc-200 text-sm rounded-xl">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -148,57 +146,49 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
                 </Select>
               </div>
             </div>
-          </div>
 
-          {/* Divider */}
-          <div className="border-t border-zinc-100 mx-6 md:mx-8" />
-
-          {/* Sezione 2: stile di viaggio */}
-          <div className="p-6 md:p-8">
-            <Label id="travel-styles-label" className="text-[11px] text-[#595142]/70 font-medium mb-4 block font-mono lowercase tracking-wide">
-              {t('formTravelType')}
-            </Label>
-            <div className="flex flex-wrap gap-2.5" role="group" aria-labelledby="travel-styles-label">
-              {TRAVEL_STYLES.map(({ key }) => {
-                const label = t(key as any)
-                const selected = selectedKeys.includes(key)
-                return (
-                  <button
-                    key={key}
-                    type="button"
-                    aria-pressed={selected}
-                    onClick={() => toggleStyle(key)}
-                    className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-[13px] font-medium border whitespace-nowrap transition-all duration-200 ${
-                      selected
-                        ? 'bg-[#821d30] text-white border-[#821d30] shadow-sm'
-                        : 'bg-transparent text-[#595142] border-zinc-200 hover:border-[#821d30]/40 hover:text-[#821d30]'
-                    }`}
-                  >
-                    {selected && <Check className="w-3.5 h-3.5" strokeWidth={2.5} />}
-                    {label}
-                  </button>
-                )
-              })}
+            {/* Stile di viaggio */}
+            <div>
+              <Label id="travel-styles-label" className="text-[11px] text-[#595142]/70 font-medium mb-2.5 block font-mono lowercase tracking-wide">
+                {t('formTravelType')}
+              </Label>
+              <div className="flex flex-wrap gap-2" role="group" aria-labelledby="travel-styles-label">
+                {TRAVEL_STYLES.map(({ key }) => {
+                  const label = t(key as any)
+                  const selected = selectedKeys.includes(key)
+                  return (
+                    <button
+                      key={key}
+                      type="button"
+                      aria-pressed={selected}
+                      onClick={() => toggleStyle(key)}
+                      className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-medium border whitespace-nowrap transition-all duration-200 ${
+                        selected
+                          ? 'bg-[#821d30] text-white border-[#821d30] shadow-sm'
+                          : 'bg-transparent text-[#595142] border-zinc-200 hover:border-[#821d30]/40 hover:text-[#821d30]'
+                      }`}
+                    >
+                      {selected && <Check className="w-3 h-3" strokeWidth={2.5} />}
+                      {label}
+                    </button>
+                  )
+                })}
+              </div>
+              {selectedKeys.length > 0 && (
+                <p className="mt-2 text-[11px] text-zinc-400 font-mono">
+                  {selectedKeys.length} {t('formSelected')}
+                </p>
+              )}
             </div>
-            {selectedKeys.length > 0 && (
-              <p className="mt-3 text-[11px] text-zinc-400 font-mono">
-                {selectedKeys.length} {t('formSelected')}
-              </p>
-            )}
-          </div>
 
-          {/* Divider */}
-          <div className="border-t border-zinc-100 mx-6 md:mx-8" />
-
-          {/* Sezione 3: submit */}
-          <div className="p-6 md:p-8">
+            {/* Submit */}
             <Button
               type="submit"
               size="lg"
               disabled={!travelMonth || selectedKeys.length === 0}
-              className="h-13 px-8 text-sm font-medium bg-[#821d30] hover:bg-[#6E182A] transition-all disabled:opacity-40 w-full rounded-full"
+              className="h-12 px-8 text-sm font-medium bg-[#821d30] hover:bg-[#6E182A] transition-all disabled:opacity-40 w-full rounded-full"
             >
-              <Plane className="w-4 h-4 mr-2.5" />
+              <Plane className="w-4 h-4 mr-2" />
               {t('formSubmit')}
             </Button>
           </div>
