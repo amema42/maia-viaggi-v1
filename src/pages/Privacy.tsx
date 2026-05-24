@@ -29,7 +29,7 @@ export default function Privacy() {
               <p>
                 La presente informativa descrive come {COMPANY_LEGAL.name}, titolare del sito {COMPANY_LEGAL.site},
                 tratta i dati personali degli utenti che visitano il sito o contattano MAIA Viaggi per ricevere
-                informazioni, consulenza o preventivi di viaggio. L'informativa e' resa ai sensi del Regolamento
+                informazioni, consulenza o preventivi di viaggio. L'informativa è resa ai sensi del Regolamento
                 UE 2016/679 ("GDPR") e del D.Lgs. 196/2003, come modificato dal D.Lgs. 101/2018.
               </p>
             </section>
@@ -64,12 +64,12 @@ export default function Privacy() {
             </section>
 
             <section>
-              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">4. Finalita' e basi giuridiche</h2>
+              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">4. Finalità e basi giuridiche</h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm border-collapse">
                   <thead>
                     <tr className="border-b border-zinc-200">
-                      <th className="text-left py-2 pr-4 font-medium">Finalita'</th>
+                      <th className="text-left py-2 pr-4 font-medium">Finalità</th>
                       <th className="text-left py-2 pr-4 font-medium">Base giuridica</th>
                     </tr>
                   </thead>
@@ -87,7 +87,7 @@ export default function Privacy() {
                       <td className="py-3 pr-4">Legittimo interesse, art. 6.1.f GDPR</td>
                     </tr>
                     <tr>
-                      <td className="py-3 pr-4">Adempiere a obblighi di legge o richieste delle autorita'</td>
+                      <td className="py-3 pr-4">Adempiere a obblighi di legge o richieste delle autorità</td>
                       <td className="py-3 pr-4">Obbligo legale, art. 6.1.c GDPR</td>
                     </tr>
                   </tbody>
@@ -99,8 +99,8 @@ export default function Privacy() {
               <h2 className="font-heading text-xl font-semibold text-foreground mb-3">5. Modalita' del trattamento</h2>
               <p>
                 I dati sono trattati con strumenti informatici e organizzativi adeguati, nel rispetto dei principi di
-                liceita', correttezza, trasparenza, minimizzazione, esattezza, limitazione della conservazione,
-                integrita' e riservatezza. Non utilizziamo processi decisionali automatizzati, profilazione, analytics
+                liceità, correttezza, trasparenza, minimizzazione, esattezza, limitazione della conservazione,
+                integrità e riservatezza. Non utilizziamo processi decisionali automatizzati, profilazione, analytics
                 o strumenti di marketing tracking.
               </p>
             </section>
@@ -112,9 +112,11 @@ export default function Privacy() {
                 del sito e delle comunicazioni. In particolare:
               </p>
               <ul className="list-disc list-inside space-y-2 ml-4">
-                <li>il sito e' ospitato su Vercel, che puo' trattare log tecnici per erogazione, sicurezza e manutenzione;</li>
-                <li>se scegli di contattarci tramite WhatsApp, la comunicazione avviene sulla piattaforma WhatsApp e secondo le relative condizioni e informative;</li>
-                <li>eventuali fornitori di servizi turistici possono ricevere dati solo quando necessario per predisporre una proposta richiesta dall'utente o proseguire una trattativa.</li>
+                <li>il sito è ospitato su <strong>Vercel</strong> (Vercel Inc., USA), che può trattare log tecnici per erogazione, sicurezza e manutenzione;</li>
+                <li>i font del sito sono caricati da <strong>Google Fonts</strong> (Google LLC): il browser dell'utente effettua richieste ai server Google, che possono registrare indirizzo IP e dati tecnici secondo la propria informativa;</li>
+                <li>alcune immagini possono essere servite da <strong>Unsplash</strong> (Unsplash Inc.): anche in questo caso il browser effettua richieste dirette ai loro server;</li>
+                <li>se scegli di contattarci tramite <strong>WhatsApp</strong>, la comunicazione avviene sulla piattaforma WhatsApp (Meta Platforms) e secondo le relative condizioni e informative;</li>
+                <li>eventuali fornitori di servizi turistici possono ricevere dati solo quando necessario per predisporre una proposta richiesta dall'utente.</li>
               </ul>
               <p className="mt-3">
                 Non vendiamo dati personali a terzi e non utilizziamo i dati per profilazione pubblicitaria.
@@ -133,7 +135,7 @@ export default function Privacy() {
             <section>
               <h2 className="font-heading text-xl font-semibold text-foreground mb-3">8. Tempi di conservazione</h2>
               <ul className="list-disc list-inside space-y-2 ml-4">
-                <li><strong>Richieste e conversazioni commerciali:</strong> per il tempo necessario a rispondere, predisporre proposte e gestire eventuali seguiti, di norma non oltre 24 mesi dall'ultimo contatto, salvo obblighi di legge o necessita' di tutela dei diritti.</li>
+                <li><strong>Richieste e conversazioni commerciali:</strong> per il tempo necessario a rispondere, predisporre proposte e gestire eventuali seguiti, di norma non oltre 24 mesi dall'ultimo contatto, salvo obblighi di legge o necessità di tutela dei diritti.</li>
                 <li><strong>Dati tecnici di navigazione:</strong> per i tempi strettamente necessari alla sicurezza e al funzionamento del sito, secondo le policy dei fornitori tecnici.</li>
                 <li><strong>Preferenze localStorage:</strong> fino a cancellazione da parte dell'utente, modifica della preferenza o svuotamento dei dati del browser.</li>
               </ul>

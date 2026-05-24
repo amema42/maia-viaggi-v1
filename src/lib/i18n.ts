@@ -17,7 +17,7 @@ export const translations = {
     // Hero Section
     heroMainTitle: 'Il Tuo Viaggio Inizia Qui',
     heroMainSubtitle: 'Compila il biglietto e scopri le destinazioni perfette per te',
-    heroCard1Title: '30+ Destinazioni',
+    heroCard1Title: '20+ destinazioni selezionate',
     heroCard1Desc: 'Esplora il mondo con noi: dall\'Europa all\'Asia, dall\'Africa alle Americhe',
     heroCard2Title: '10 Anni di Esperienza',
     heroCard2Desc: 'La nostra passione per i viaggi si traduce in esperienze indimenticabili',
@@ -39,10 +39,10 @@ export const translations = {
 
     heroYearsExperience: '10 Anni di Esperienza',
     heroYearsDesc: 'Nel settore turistico',
-    heroDestinations: '50+ Destinazioni',
+    heroDestinations: '20+ destinazioni',
     heroDestinationsDesc: 'In tutto il mondo',
-    heroSatisfaction: '98% Soddisfazione',
-    heroSatisfactionDesc: 'Clienti felici',
+    heroSatisfaction: 'consulenza su misura',
+    heroSatisfactionDesc: 'per ogni viaggiatore',
     
     // Gift Package
     giftTitle: 'Regala un Viaggio',
@@ -97,7 +97,7 @@ export const translations = {
     // Hero editorial
     heroEyebrow: 'il tuo viaggio',
     heroHeadline: 'La persona, prima della meta.',
-    stat1: '30+ destinazioni',
+    stat1: '20+ destinazioni',
     stat2: '10 anni di esperienza',
     stat3: 'assistenza 24/7',
 
@@ -185,7 +185,7 @@ export const translations = {
     // Hero Section
     heroMainTitle: 'Your Journey Starts Here',
     heroMainSubtitle: 'Fill in the ticket and discover the perfect destinations for you',
-    heroCard1Title: '30+ Destinations',
+    heroCard1Title: '20+ curated destinations',
     heroCard1Desc: 'Explore the world with us: from Europe to Asia, from Africa to the Americas',
     heroCard2Title: '10 Years of Experience',
     heroCard2Desc: 'Our passion for travel translates into unforgettable experiences',
@@ -200,10 +200,10 @@ export const translations = {
     ourDestinationsSubtitle: 'Find your next adventure',
     heroYearsExperience: '10 Years of Experience',
     heroYearsDesc: 'In the tourism industry',
-    heroDestinations: '50+ Destinations',
+    heroDestinations: '20+ destinations',
     heroDestinationsDesc: 'Around the world',
-    heroSatisfaction: '98% Satisfaction',
-    heroSatisfactionDesc: 'Happy customers',
+    heroSatisfaction: 'tailored advice',
+    heroSatisfactionDesc: 'for every traveller',
     
     // Gift Package
     giftTitle: 'Gift a Trip',
@@ -256,7 +256,7 @@ export const translations = {
     teamAdventurous: 'the Adventurous',
     heroEyebrow: 'your journey',
     heroHeadline: 'The person, before the destination.',
-    stat1: '30+ destinations',
+    stat1: '20+ destinations',
     stat2: '10 years of experience',
     stat3: '24/7 support',
     marrakechEyebrow: 'group trip',
@@ -326,7 +326,7 @@ export const translations = {
     // Hero Section
     heroMainTitle: 'Tu Viaje Comienza Aquí',
     heroMainSubtitle: 'Completa el billete y descubre los destinos perfectos para ti',
-    heroCard1Title: '30+ Destinos',
+    heroCard1Title: '20+ destinos seleccionados',
     heroCard1Desc: 'Explora el mundo con nosotros: de Europa a Asia, de África a las Américas',
     heroCard2Title: '10 Años de Experiencia',
     heroCard2Desc: 'Nuestra pasión por los viajes se traduce en experiencias inolvidables',
@@ -341,10 +341,10 @@ export const translations = {
     ourDestinationsSubtitle: 'Encuentra tu próxima aventura',
     heroYearsExperience: '10 Años de Experiencia',
     heroYearsDesc: 'En el sector turístico',
-    heroDestinations: '50+ Destinos',
+    heroDestinations: '20+ destinos',
     heroDestinationsDesc: 'En todo el mundo',
-    heroSatisfaction: '98% Satisfacción',
-    heroSatisfactionDesc: 'Clientes felices',
+    heroSatisfaction: 'asesoramiento a medida',
+    heroSatisfactionDesc: 'para cada viajero',
     
     // Gift Package
     giftTitle: 'Regala un Viaje',
@@ -397,7 +397,7 @@ export const translations = {
     teamAdventurous: 'el Aventurero',
     heroEyebrow: 'tu viaje',
     heroHeadline: 'La persona, antes del destino.',
-    stat1: '30+ destinos',
+    stat1: '20+ destinos',
     stat2: '10 años de experiencia',
     stat3: 'asistencia 24/7',
     marrakechEyebrow: 'viaje de grupo',
@@ -467,7 +467,7 @@ export const translations = {
     // Hero Section
     heroMainTitle: 'Votre Voyage Commence Ici',
     heroMainSubtitle: 'Remplissez le billet et découvrez les destinations parfaites pour vous',
-    heroCard1Title: '30+ Destinations',
+    heroCard1Title: '20+ curated destinations',
     heroCard1Desc: 'Explorez le monde avec nous: de l\'Europe à l\'Asie, de l\'Afrique aux Amériques',
     heroCard2Title: '10 Ans d\'Expérience',
     heroCard2Desc: 'Notre passion pour les voyages se traduit par des expériences inoubliables',
@@ -482,10 +482,10 @@ export const translations = {
     ourDestinationsSubtitle: 'Trouvez votre prochaine aventure',
     heroYearsExperience: '10 Ans d\'Expérience',
     heroYearsDesc: 'Dans le secteur touristique',
-    heroDestinations: '50+ Destinations',
+    heroDestinations: '20+ destinations',
     heroDestinationsDesc: 'Dans le monde entier',
-    heroSatisfaction: '98% Satisfaction',
-    heroSatisfactionDesc: 'Clients satisfaits',
+    heroSatisfaction: 'tailored advice',
+    heroSatisfactionDesc: 'pour chaque voyageur',
     
     // Gift Package
     giftTitle: 'Offrez un Voyage',
@@ -538,7 +538,7 @@ export const translations = {
     teamAdventurous: 'l\'Aventureux',
     heroEyebrow: 'votre voyage',
     heroHeadline: 'La personne, avant la destination.',
-    stat1: '30+ destinations',
+    stat1: '20+ destinations',
     stat2: '10 ans d\'expérience',
     stat3: 'assistance 24/7',
     marrakechEyebrow: 'voyage de groupe',
@@ -608,7 +608,7 @@ export const translations = {
     // Hero Section
     heroMainTitle: 'Ihre Reise Beginnt Hier',
     heroMainSubtitle: 'Füllen Sie das Ticket aus und entdecken Sie die perfekten Reiseziele für Sie',
-    heroCard1Title: '30+ Reiseziele',
+    heroCard1Title: '20+ ausgewählte Reiseziele',
     heroCard1Desc: 'Entdecken Sie die Welt mit uns: von Europa nach Asien, von Afrika nach Amerika',
     heroCard2Title: '10 Jahre Erfahrung',
     heroCard2Desc: 'Unsere Leidenschaft für Reisen wird zu unvergesslichen Erlebnissen',
@@ -623,10 +623,10 @@ export const translations = {
     ourDestinationsSubtitle: 'Finden Sie Ihr nächstes Abenteuer',
     heroYearsExperience: '10 Jahre Erfahrung',
     heroYearsDesc: 'In der Tourismusbranche',
-    heroDestinations: '50+ Reiseziele',
+    heroDestinations: '20+ Reiseziele',
     heroDestinationsDesc: 'Auf der ganzen Welt',
-    heroSatisfaction: '98% Zufriedenheit',
-    heroSatisfactionDesc: 'Glückliche Kunden',
+    heroSatisfaction: 'individuelle Beratung',
+    heroSatisfactionDesc: 'für jeden Reisenden',
     
     // Gift Package
     giftTitle: 'Schenken Sie eine Reise',
@@ -679,7 +679,7 @@ export const translations = {
     teamAdventurous: 'der Abenteurer',
     heroEyebrow: 'Ihre Reise',
     heroHeadline: 'Die Person, vor dem Ziel.',
-    stat1: '30+ Reiseziele',
+    stat1: '20+ ausgewählte Reiseziele',
     stat2: '10 Jahre Erfahrung',
     stat3: '24/7 Unterstützung',
     marrakechEyebrow: 'Gruppenreise',

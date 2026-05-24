@@ -427,5 +427,6 @@ export const TEAM_MEMBERS = {
 export const ROUTE_PATHS = {
   HOME: '/',
   PRIVACY: '/privacy',
-  COOKIE: '/cookie-policy'
+  COOKIE: '/cookie-policy',
+  TERMS: '/termini',
 } as const;

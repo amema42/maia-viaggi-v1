@@ -48,10 +48,10 @@ export default function Terms() {
             </section>
 
             <section>
-              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">3. Richieste, preventivi e disponibilita'</h2>
+              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">3. Richieste, preventivi e disponibilità</h2>
               <p>
                 L'invio di una richiesta tramite il sito o tramite WhatsApp non costituisce prenotazione, acquisto o
-                accettazione di una proposta contrattuale. Eventuali preventivi, itinerari, prezzi, disponibilita' e
+                accettazione di una proposta contrattuale. Eventuali preventivi, itinerari, prezzi, disponibilità e
                 condizioni comunicati da MAIA Viaggi hanno valore informativo o precontrattuale fino a conferma espressa
                 per iscritto e, se applicabile, fino alla sottoscrizione della documentazione contrattuale specifica.
               </p>
@@ -83,18 +83,18 @@ export default function Terms() {
               <p className="mb-3">L'utente si impegna a:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>fornire informazioni corrette, aggiornate e pertinenti alla richiesta;</li>
-                <li>non usare il sito o i canali di contatto per finalita' illecite, abusive o lesive di terzi;</li>
+                <li>non usare il sito o i canali di contatto per finalità illecite, abusive o lesive di terzi;</li>
                 <li>verificare, con il supporto dell'agenzia quando richiesto, documenti di identita', passaporti, visti, requisiti sanitari e condizioni di ingresso nel Paese di destinazione;</li>
                 <li>leggere con attenzione eventuali condizioni specifiche prima di confermare una prenotazione fuori dal sito.</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">7. Limitazione di responsabilita'</h2>
+              <h2 className="font-heading text-xl font-semibold text-foreground mb-3">7. Limitazione di responsabilità</h2>
               <p>
                 MAIA Viaggi cura i contenuti del sito con attenzione, ma non garantisce che informazioni, immagini,
-                disponibilita', prezzi o descrizioni siano sempre completi, aggiornati o privi di errori. I contenuti del
-                sito non costituiscono offerta vincolante. MAIA Viaggi non e' responsabile per disservizi, sospensioni,
+                disponibilità, prezzi o descrizioni siano sempre completi, aggiornati o privi di errori. I contenuti del
+                sito non costituiscono offerta vincolante. MAIA Viaggi non è responsabile per disservizi, sospensioni,
                 malfunzionamenti tecnici, uso improprio del sito, contenuti di siti o piattaforme esterne, ne' per
                 circostanze non imputabili alla propria sfera di controllo.
               </p>
@@ -103,9 +103,9 @@ export default function Terms() {
             <section>
               <h2 className="font-heading text-xl font-semibold text-foreground mb-3">8. Link e piattaforme esterne</h2>
               <p>
-                Il sito puo' contenere collegamenti a piattaforme esterne, inclusi WhatsApp e social network. L'accesso
-                a tali servizi e' regolato dalle condizioni e dalle informative privacy dei rispettivi titolari. MAIA
-                Viaggi non controlla e non risponde delle modalita' di funzionamento di tali piattaforme.
+                Il sito può contenere collegamenti a piattaforme esterne, inclusi WhatsApp e social network. L'accesso
+                a tali servizi è regolato dalle condizioni e dalle informative privacy dei rispettivi titolari. MAIA
+                Viaggi non controlla e non risponde delle modalità di funzionamento di tali piattaforme.
               </p>
             </section>
 
@@ -114,7 +114,7 @@ export default function Terms() {
               <p>
                 Marchi, loghi, testi, layout, elementi grafici, immagini e contenuti presenti sul sito sono di titolarita'
                 di MAIA Viaggi o concessi in licenza dai rispettivi titolari. E' vietata la riproduzione, distribuzione,
-                modifica o uso dei contenuti per finalita' commerciali senza autorizzazione scritta.
+                modifica o uso dei contenuti per finalità commerciali senza autorizzazione scritta.
               </p>
             </section>
 
@@ -130,8 +130,8 @@ export default function Terms() {
             <section>
               <h2 className="font-heading text-xl font-semibold text-foreground mb-3">11. Modifiche ai Termini</h2>
               <p>
-                MAIA Viaggi puo' aggiornare questi Termini per esigenze organizzative, tecniche o normative. La versione
-                applicabile e' quella pubblicata sul sito al momento della consultazione.
+                MAIA Viaggi può aggiornare questi Termini per esigenze organizzative, tecniche o normative. La versione
+                applicabile è quella pubblicata sul sito al momento della consultazione.
               </p>
             </section>
 
@@ -139,7 +139,7 @@ export default function Terms() {
               <h2 className="font-heading text-xl font-semibold text-foreground mb-3">12. Legge applicabile e foro competente</h2>
               <p>
                 I presenti Termini sono regolati dalla legge italiana. Per ogni controversia relativa all'uso del sito e
-                dei servizi informativi online sara' competente il Foro di Roma, salvo eventuali fori inderogabili
+                dei servizi informativi online sarà competente il Foro di Roma, salvo eventuali fori inderogabili
                 previsti dalla legge a tutela dei consumatori.
               </p>
             </section>

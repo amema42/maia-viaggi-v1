@@ -16,7 +16,7 @@ export default function NotFound() {
             Pagina non trovata
           </h1>
           <p className="text-foreground/60 text-lg mb-8 leading-relaxed">
-            La pagina che cerchi non esiste o e' stata spostata.
+            La pagina che cerchi non esiste o è stata spostata.
           </p>
           <a
             href="/"

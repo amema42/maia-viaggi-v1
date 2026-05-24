@@ -90,7 +90,7 @@ export default function Cookie() {
             <section>
               <h2 className="font-heading text-xl font-semibold text-foreground mb-3">5. Consenso</h2>
               <p>
-                Gli strumenti indicati sono tecnici e funzionali alla navigazione; per questa tipologia non e' richiesto
+                Gli strumenti indicati sono tecnici e funzionali alla navigazione; per questa tipologia non è richiesto
                 il consenso preventivo. Il banner serve a informarti in modo chiaro e a registrare la tua preferenza
                 locale. Se scegli "Rifiuta", il sito salva solo tale scelta tecnica per non mostrarti nuovamente il
                 banner.
@@ -101,7 +101,7 @@ export default function Cookie() {
               <h2 className="font-heading text-xl font-semibold text-foreground mb-3">6. Come gestire o cancellare i dati locali</h2>
               <p>
                 Puoi cancellare i dati salvati nel localStorage dalle impostazioni del browser, eliminando i dati del
-                sito {COMPANY_LEGAL.site}. Dopo la cancellazione, il banner potra' ricomparire e la lingua potra' tornare
+                sito {COMPANY_LEGAL.site}. Dopo la cancellazione, il banner potrà ricomparire e la lingua potrà tornare
                 alla selezione predefinita.
               </p>
             </section>

@@ -122,9 +122,10 @@ export function WorldMap({ filterTags = [] }: WorldMapProps) {
               delay={Math.min(index % 4, 4) as 0 | 1 | 2 | 3 | 4}
               className={isLead ? 'md:col-span-2 md:row-span-2' : ''}
             >
-              <div
+              <button
+                type="button"
                 onClick={() => setSelectedDestination(dest.id)}
-                className="dest-card cursor-pointer relative rounded-2xl overflow-hidden bg-white border border-zinc-100 h-full"
+                className="dest-card cursor-pointer relative rounded-2xl overflow-hidden bg-white border border-zinc-100 h-full text-left w-full"
               >
                 <div className={`relative overflow-hidden ${isLead ? 'h-64 md:h-full' : 'h-48'}`}>
                   <img
@@ -175,7 +176,7 @@ export function WorldMap({ filterTags = [] }: WorldMapProps) {
                     </div>
                   </div>
                 )}
-              </div>
+              </button>
             </ScrollReveal>
           )
         })}

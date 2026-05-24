@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X, Globe, ChevronDown } from 'lucide-react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { IMAGES } from '@/assets/images'
 import { useLanguage, languageNames, type Language } from '@/lib/i18n'
 
@@ -55,12 +56,15 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { language, setLanguage, t } = useLanguage()
+  const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
   const navItems = [
     { label: t('home'), href: '#hero' },
     { label: t('createTrip'), href: '#hero' },
@@ -69,13 +73,17 @@ export function Header() {
   ]
 
   const scrollToSection = (href: string) => {
+    setIsMobileMenuOpen(false)
+    if (location.pathname !== '/') {
+      navigate('/' + href)
+      return
+    }
     const element = document.querySelector(href)
     if (element) {
       const headerHeight = 72
       const elementTop = element.getBoundingClientRect().top + window.scrollY - headerHeight
       window.scrollTo({ top: elementTop, behavior: 'smooth' })
     }
-    setIsMobileMenuOpen(false)
   }
 
   return (
@@ -136,6 +144,8 @@ export function Header() {
             {/* Mobile hamburger */}
             <button type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-expanded={isMobileMenuOpen}
+              aria-label="Menu navigazione"
               className="lg:hidden ml-auto p-2 rounded-lg transition-colors text-zinc-800 hover:bg-black/5"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
