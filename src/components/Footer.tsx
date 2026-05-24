@@ -5,6 +5,14 @@ import { Link } from 'react-router-dom'
 import { ROUTE_PATHS } from '@/lib/index'
 import { useLanguage, languageNames, type Language } from '@/lib/i18n'
 
+const langFlags: Record<Language, string> = {
+  it: '\u{1F1EE}\u{1F1F9}',
+  en: '\u{1F1EC}\u{1F1E7}',
+  es: '\u{1F1EA}\u{1F1F8}',
+  fr: '\u{1F1EB}\u{1F1F7}',
+  de: '\u{1F1E9}\u{1F1EA}',
+};
+
 function LanguageButton({ lang }: { lang: Language }) {
   const { language, setLanguage } = useLanguage();
   const isActive = language === lang;
@@ -12,12 +20,13 @@ function LanguageButton({ lang }: { lang: Language }) {
   return (
     <button
       onClick={() => setLanguage(lang)}
-      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+      className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
         isActive
-          ? 'bg-white text-[#821D30]'
+          ? 'bg-white text-[#821D30] shadow-lg'
           : 'bg-white/10 text-white hover:bg-white/20'
       }`}
     >
+      <span className="text-base">{langFlags[lang]}</span>
       {languageNames[lang]}
     </button>
   );

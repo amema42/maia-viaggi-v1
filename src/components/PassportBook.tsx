@@ -310,77 +310,48 @@ export function PassportBook() {
                   </div>
 
                   {/* Team members */}
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     {archetypesList.map((archetype, index) => (
                       <motion.div
                         key={archetype.id}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: isOpen ? 1 : 0, x: isOpen ? 0 : 20 }}
                         transition={{ delay: 0.5 + index * 0.1 }}
-                        className="relative cursor-pointer"
+                        className="cursor-pointer group"
                         onClick={(e) => {
                           e.stopPropagation();
                           setSelectedMember(archetype.memberName);
                         }}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
                       >
                         <div
-                          className="flex items-start gap-3 p-3 rounded-xl bg-white/60 dark:bg-zinc-900/40 border-2 border-zinc-200 dark:border-zinc-700"
-                          style={{
-                            borderLeftWidth: '4px',
-                            borderLeftColor: archetype.color
-                          }}
+                          className="flex items-center gap-4 p-4 rounded-xl transition-all duration-200 hover:bg-white/80 dark:hover:bg-zinc-800/60"
+                          style={{ borderLeft: `3px solid ${archetype.color}` }}
                         >
-                          {/* Foto passaporto */}
                           <div className="relative flex-shrink-0">
                             <div
-                              className="w-16 h-20 rounded-sm overflow-hidden border-2 border-white dark:border-zinc-700 shadow-lg"
-                              style={{
-                                boxShadow: `0 4px 12px ${archetype.color}40`
-                              }}
+                              className="w-14 h-14 rounded-full overflow-hidden shadow-md ring-2 ring-white"
                             >
                               <img
                                 src={archetype.photo}
-                                alt={archetype.memberName}
-                                className="w-full h-full object-cover grayscale-[30%]" loading="lazy" decoding="async"
+                                alt={`${archetype.memberName}, ${archetype.role}`}
+                                className="w-full h-full object-cover" loading="lazy" decoding="async"
                               />
-                            </div>
-                            {/* Timbro */}
-                            <div
-                              className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold -rotate-12"
-                              style={{
-                                backgroundColor: archetype.color,
-                                opacity: 0.9,
-                                border: '2px dashed rgba(255,255,255,0.5)'
-                              }}
-                            >
-                              <Stamp className="w-4 h-4" />
                             </div>
                           </div>
 
-                          {/* Info */}
                           <div className="flex-1 min-w-0">
-                            <div className="mb-1">
-                              <div className="text-[10px] text-zinc-500 dark:text-zinc-400 font-mono mb-0.5">
-                                nome
-                              </div>
-                              <h4
-                                className="font-heading text-base font-medium"
-                                style={{ color: archetype.color }}
-                              >
-                                {archetype.memberName}
-                              </h4>
-                            </div>
-                            <div>
-                              <div className="text-[10px] text-zinc-500 dark:text-zinc-400 font-mono mb-0.5">
-                                ruolo
-                              </div>
-                              <p className="text-xs font-heading italic text-zinc-700 dark:text-zinc-300">
-                                {archetype.role}
-                              </p>
-                            </div>
+                            <h4
+                              className="font-heading text-lg font-medium leading-tight"
+                              style={{ color: archetype.color }}
+                            >
+                              {archetype.memberName}
+                            </h4>
+                            <p className="text-sm font-heading italic text-zinc-600 dark:text-zinc-400">
+                              {archetype.role}
+                            </p>
                           </div>
+
+                          <span className="text-xs text-zinc-400 group-hover:text-zinc-600 transition-colors">→</span>
                         </div>
                       </motion.div>
                     ))}
@@ -424,101 +395,68 @@ export function PassportBook() {
               className="relative bg-[#F5F1E8] dark:bg-zinc-900 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Header */}
-              <div
-                className="sticky top-0 z-10 p-6 border-b-4 rounded-t-2xl"
-                style={{
-                  background: 'linear-gradient(135deg, #8B1538 0%, #A01D48 50%, #8B1538 100%)',
-                  borderColor: archetypesList.find(a => a.memberName === selectedMember)?.color
-                }}
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <div
-                      className="w-20 h-24 rounded-sm overflow-hidden border-4 border-white shadow-lg"
-                      style={{
-                        boxShadow: `0 4px 12px ${archetypesList.find(a => a.memberName === selectedMember)?.color}60`
-                      }}
-                    >
-                      <img
-                        src={archetypesList.find(a => a.memberName === selectedMember)?.photo}
-                        alt={selectedMember}
-                        className="w-full h-full object-cover grayscale-[30%]" loading="lazy" decoding="async"
-                      />
+              {/* Header con foto e nome */}
+              {(() => {
+                const member = archetypesList.find(a => a.memberName === selectedMember);
+                const color = member?.color || '#821D30';
+                return (
+                  <>
+                    <div className="relative">
+                      <div className="h-48 md:h-56 overflow-hidden rounded-t-2xl">
+                        <img
+                          src={member?.photo}
+                          alt={`${selectedMember}, ${member?.role}`}
+                          className="w-full h-full object-cover object-top"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                      </div>
+                      <button
+                        onClick={() => setSelectedMember(null)}
+                        aria-label="Chiudi"
+                        className="absolute top-4 right-4 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-zinc-700 hover:bg-white shadow-lg text-xl"
+                      >
+                        &times;
+                      </button>
+                      <div className="absolute bottom-6 left-6 right-6">
+                        <h3 className="font-heading text-3xl md:text-4xl font-medium text-white">
+                          {selectedMember}
+                        </h3>
+                        <p className="font-heading italic text-lg" style={{ color }}>
+                          {member?.role}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3
-                        className="font-heading text-3xl font-bold text-white mb-1"
-                      >
-                        {selectedMember}
-                      </h3>
-                      <p
-                        className="text-lg font-semibold"
-                        style={{
-                          color: archetypesList.find(a => a.memberName === selectedMember)?.color
-                        }}
-                      >
-                        {archetypesList.find(a => a.memberName === selectedMember)?.role}
+
+                    <div className="p-6 md:p-8 space-y-6">
+                      <p className="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                        {memberDetails[selectedMember]?.description}
                       </p>
-                    </div>
-                  </div>
-                  <button
-                    onClick={() => setSelectedMember(null)}
-                    className="text-white hover:text-[#D4AF37] transition-colors text-3xl font-bold"
-                  >
-                    ×
-                  </button>
-                </div>
-              </div>
 
-              {/* Content */}
-              <div className="p-6 space-y-6">
-                {/* Descrizione */}
-                <div>
-                  <h4 className="font-heading text-xl font-bold text-[#8B1538] mb-3 flex items-center gap-2">
-                    <span className="text-2xl">📝</span>
-                    Chi sono
-                  </h4>
-                  <p className="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                    {memberDetails[selectedMember]?.description}
-                  </p>
-                </div>
+                      <div className="flex flex-wrap gap-2">
+                        {memberDetails[selectedMember]?.skills.map((skill, idx) => (
+                          <span
+                            key={idx}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm border"
+                            style={{ borderColor: `${color}40`, color }}
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: color }} />
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
 
-                {/* Competenze */}
-                <div>
-                  <h4 className="font-heading text-xl font-bold text-[#8B1538] mb-3 flex items-center gap-2">
-                    <span className="text-2xl">✨</span>
-                    Competenze e Conoscenze
-                  </h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {memberDetails[selectedMember]?.skills.map((skill, idx) => (
-                      <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: idx * 0.05 }}
-                        className="flex items-center gap-2 p-3 rounded-lg bg-white/60 dark:bg-zinc-800/60 border-l-4"
-                        style={{
-                          borderColor: archetypesList.find(a => a.memberName === selectedMember)?.color
-                        }}
+                      <button
+                        onClick={() => setSelectedMember(null)}
+                        className="w-full py-3 text-white font-medium rounded-full hover:shadow-lg transition-all"
+                        style={{ backgroundColor: color }}
                       >
-                        <span className="text-lg">✓</span>
-                        <span className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">
-                          {skill}
-                        </span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Pulsante chiudi */}
-                <button
-                  onClick={() => setSelectedMember(null)}
-                  className="w-full py-3 bg-gradient-to-r from-[#8B1538] to-[#ce5b20] text-white font-bold rounded-lg hover:shadow-lg transition-all"
-                >
-                  Chiudi
-                </button>
-              </div>
+                        Chiudi
+                      </button>
+                    </div>
+                  </>
+                );
+              })()}
             </motion.div>
           </motion.div>
         )}

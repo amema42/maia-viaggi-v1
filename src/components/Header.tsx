@@ -18,11 +18,11 @@ export function Header() {
   }, [])
 
   const menuItems = [
-    { label: t('home'), href: '#hero', action: null },
-    { label: t('createTrip'), href: '#hero', action: null },
-    { label: t('destinations'), href: '#destinazioni-section', action: null },
-    { label: t('about'), href: '#passport-section', action: null },
-    { label: t('contact'), href: '#footer', action: 'open-contact' }
+    { label: 'Home', href: '#hero', action: null },
+    { label: 'Crea il tuo viaggio', href: '#hero', action: null },
+    { label: 'Destinazioni', href: '#destinazioni-section', action: null },
+    { label: 'Chi siamo', href: '#passport-section', action: null },
+    { label: 'Contatti', href: '#footer', action: 'open-contact' }
   ]
 
   const scrollToSection = (href: string, action: string | null) => {

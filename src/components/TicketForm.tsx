@@ -151,20 +151,20 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
               <Label className="text-xs text-[#595142] font-medium mb-2 md:mb-3 block">
                 Tipologia Viaggio (seleziona tutto ciò che ti interessa)
               </Label>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
+              <div className="flex flex-wrap gap-2 md:gap-3">
                 {travelStyleOptions.map((style) => (
                   <button
                     key={style}
                     type="button"
                     onClick={() => toggleTravelStyle(style)}
-                    className={`relative px-3 md:px-4 py-2 md:py-3 rounded-xl text-xs md:text-sm font-bold transition-all duration-200 border-2 shadow-md hover:scale-[1.03] active:scale-[0.97] ${
+                    className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs md:text-sm font-semibold transition-all duration-200 border whitespace-nowrap hover:scale-[1.03] active:scale-[0.97] ${
                       travelStyles.includes(style)
-                        ? 'bg-[#1A1A1A] text-[#F5EFE1] border-transparent'
+                        ? 'bg-[#821d30] text-white border-[#821d30]'
                         : 'bg-white text-[#595142] border-[#D8CDB5] hover:border-[#821d30] hover:text-[#821d30]'
                     }`}
                   >
                     {travelStyles.includes(style) && (
-                      <Check className="w-4 h-4 md:w-5 md:h-5 absolute top-2 right-2" strokeWidth={3} />
+                      <Check className="w-3.5 h-3.5" strokeWidth={2.5} />
                     )}
                     {style}
                   </button>

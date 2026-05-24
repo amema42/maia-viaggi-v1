@@ -108,41 +108,24 @@ export default function Home() {
             <TicketForm onSubmit={handleTicketSubmit} />
           </motion.div>
 
-          {/* Info cards — sotto il form */}
+          {/* Stats strip — sotto il form */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...springPresets.gentle, delay: 0.7 }}
-            className="grid grid-cols-3 gap-3 max-w-3xl mx-auto mt-6"
+            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 max-w-3xl mx-auto mt-8"
           >
-            <div className="bg-white/90 backdrop-blur-sm rounded-xl px-3 py-3 shadow-md border border-[#821d30]/20 hover:border-[#821d30] transition-all flex flex-col items-center gap-1 hover:-translate-y-1 duration-200">
-              <Globe className="w-5 h-5 text-[#821d30]" />
-              <h3 className="font-heading text-xs md:text-sm font-bold text-[#821d30] text-center leading-tight">
-                {t('heroCard1Title')}
-              </h3>
-              <p className="text-[10px] md:text-xs text-gray-500 text-center leading-snug hidden md:block">
-                {t('heroCard1Desc')}
-              </p>
+            <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[#821d30]" />
+              <span className="text-xs md:text-sm font-medium text-[#1A1A1A]">{t('heroCard1Title')}</span>
             </div>
-
-            <div className="bg-white/90 backdrop-blur-sm rounded-xl px-3 py-3 shadow-md border border-[#ce5b20]/20 hover:border-[#ce5b20] transition-all flex flex-col items-center gap-1 hover:-translate-y-1 duration-200">
-              <Award className="w-5 h-5 text-[#ce5b20]" />
-              <h3 className="font-heading text-xs md:text-sm font-bold text-[#ce5b20] text-center leading-tight">
-                {t('heroCard2Title')}
-              </h3>
-              <p className="text-[10px] md:text-xs text-gray-500 text-center leading-snug hidden md:block">
-                {t('heroCard2Desc')}
-              </p>
+            <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[#ce5b20]" />
+              <span className="text-xs md:text-sm font-medium text-[#1A1A1A]">{t('heroCard2Title')}</span>
             </div>
-
-            <div className="bg-white/90 backdrop-blur-sm rounded-xl px-3 py-3 shadow-md border border-[#237478]/20 hover:border-[#237478] transition-all flex flex-col items-center gap-1 hover:-translate-y-1 duration-200">
-              <Users className="w-5 h-5 text-[#237478]" />
-              <h3 className="font-heading text-xs md:text-sm font-bold text-[#237478] text-center leading-tight">
-                {t('heroCard3Title')}
-              </h3>
-              <p className="text-[10px] md:text-xs text-gray-500 text-center leading-snug hidden md:block">
-                {t('heroCard3Desc')}
-              </p>
+            <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[#237478]" />
+              <span className="text-xs md:text-sm font-medium text-[#1A1A1A]">{t('heroCard3Title')}</span>
             </div>
           </motion.div>
 
