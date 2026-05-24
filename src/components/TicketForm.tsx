@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { Plane, Check } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -7,12 +7,40 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { type TicketFormData } from '@/lib/index'
 import { useLanguage } from '@/lib/i18n'
 
+const LOCALE_MAP: Record<string, string> = {
+  it: 'it-IT', en: 'en-GB', es: 'es-ES', fr: 'fr-FR', de: 'de-DE',
+}
+
+const MONTH_VALUES = [
+  '2026-04', '2026-05', '2026-06', '2026-07', '2026-08', '2026-09',
+  '2026-10', '2026-11', '2026-12', '2027-01', '2027-02', '2027-03',
+]
+
+function formatMonth(value: string, locale: string): string {
+  const [year, month] = value.split('-').map(Number)
+  const date = new Date(year, month - 1)
+  const formatted = new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric' }).format(date)
+  return formatted.charAt(0).toUpperCase() + formatted.slice(1)
+}
+
+const TRAVEL_STYLE_KEYS = [
+  'styleFood', 'styleAdventure', 'styleCultural', 'styleRelax', 'styleBeach',
+  'styleMountain', 'styleRomantic', 'styleFamily', 'styleLuxury', 'styleReligious',
+] as const
+
 interface TicketFormProps {
   onSubmit: (data: TicketFormData) => void
 }
 
 export function TicketForm({ onSubmit }: TicketFormProps) {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
+  const locale = LOCALE_MAP[language] || 'it-IT'
+
+  const months = useMemo(() =>
+    MONTH_VALUES.map(v => ({ value: v, label: formatMonth(v, locale) })),
+    [locale]
+  )
+
   const [formData, setFormData] = useState<TicketFormData>({
     destination: '',
     travelType: 'private',
@@ -24,11 +52,6 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
 
   const [travelMonth, setTravelMonth] = useState('')
   const [travelStyles, setTravelStyles] = useState<string[]>([])
-
-  const travelStyleOptions = [
-    'Enogastronomico', 'Avventura', 'Culturale', 'Relax', 'Mare',
-    'Montagna', 'Romantico', 'Famiglia', 'Lusso', 'Religioso'
-  ]
 
   const toggleTravelStyle = (style: string) => {
     setTravelStyles(prev =>
@@ -55,7 +78,6 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
           }}
         >
           <div className="p-5 md:p-7 space-y-5">
-            {/* Form fields */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
               <div>
                 <Label className="text-xs text-[#595142] font-medium mb-2 block font-mono lowercase">
@@ -66,18 +88,9 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
                     <SelectValue placeholder={t('formSelectMonth')} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="2026-04">Aprile 2026</SelectItem>
-                    <SelectItem value="2026-05">Maggio 2026</SelectItem>
-                    <SelectItem value="2026-06">Giugno 2026</SelectItem>
-                    <SelectItem value="2026-07">Luglio 2026</SelectItem>
-                    <SelectItem value="2026-08">Agosto 2026</SelectItem>
-                    <SelectItem value="2026-09">Settembre 2026</SelectItem>
-                    <SelectItem value="2026-10">Ottobre 2026</SelectItem>
-                    <SelectItem value="2026-11">Novembre 2026</SelectItem>
-                    <SelectItem value="2026-12">Dicembre 2026</SelectItem>
-                    <SelectItem value="2027-01">Gennaio 2027</SelectItem>
-                    <SelectItem value="2027-02">Febbraio 2027</SelectItem>
-                    <SelectItem value="2027-03">Marzo 2027</SelectItem>
+                    {months.map(m => (
+                      <SelectItem key={m.value} value={m.value}>{m.label}</SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </div>
@@ -112,36 +125,38 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
               </div>
             </div>
 
-            {/* Travel styles */}
             <div>
               <Label className="text-xs text-[#595142] font-medium mb-3 block font-mono lowercase">
                 {t('formTravelType')}
               </Label>
               <div className="flex flex-wrap gap-2">
-                {travelStyleOptions.map((style) => (
-                  <button
-                    key={style}
-                    type="button"
-                    onClick={() => toggleTravelStyle(style)}
-                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border whitespace-nowrap transition-all duration-200 ${
-                      travelStyles.includes(style)
-                        ? 'bg-[#821d30] text-white border-[#821d30]'
-                        : 'bg-transparent text-[#595142] border-zinc-200 hover:border-[#821d30] hover:text-[#821d30]'
-                    }`}
-                  >
-                    {travelStyles.includes(style) && <Check className="w-3 h-3" strokeWidth={2.5} />}
-                    {style}
-                  </button>
-                ))}
+                {TRAVEL_STYLE_KEYS.map((key) => {
+                  const label = t(key as any)
+                  const selected = travelStyles.includes(label)
+                  return (
+                    <button
+                      key={key}
+                      type="button"
+                      onClick={() => toggleTravelStyle(label)}
+                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border whitespace-nowrap transition-all duration-200 ${
+                        selected
+                          ? 'bg-[#821d30] text-white border-[#821d30]'
+                          : 'bg-transparent text-[#595142] border-zinc-200 hover:border-[#821d30] hover:text-[#821d30]'
+                      }`}
+                    >
+                      {selected && <Check className="w-3 h-3" strokeWidth={2.5} />}
+                      {label}
+                    </button>
+                  )
+                })}
               </div>
               {travelStyles.length > 0 && (
                 <p className="mt-2 text-[11px] text-zinc-400 font-mono">
-                  {travelStyles.length} selezionat{travelStyles.length === 1 ? 'o' : 'i'}
+                  {travelStyles.length} {t('formSelected')}
                 </p>
               )}
             </div>
 
-            {/* Submit */}
             <Button
               type="submit"
               size="lg"
