@@ -437,11 +437,11 @@ export const translations = {
 };
 
 export const languageNames: Record<Language, string> = {
-  it: '🇮🇹 Italiano',
-  en: '🇬🇧 English',
-  es: '🇪🇸 Español',
-  fr: '🇫🇷 Français',
-  de: '🇩🇪 Deutsch',
+  it: 'Italiano',
+  en: 'English',
+  es: 'Español',
+  fr: 'Français',
+  de: 'Deutsch',
 };
 
 // Hook per usare le traduzioni

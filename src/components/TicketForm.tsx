@@ -1,13 +1,10 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 import { Plane, Check } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { type TicketFormData } from '@/lib/index'
-import { springPresets } from '@/lib/motion'
-import { IMAGES } from '@/assets/images'
 
 interface TicketFormProps {
   onSubmit: (data: TicketFormData) => void
@@ -22,7 +19,7 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
     passengers: 1,
     preferences: ''
   })
-  
+
   const [travelMonth, setTravelMonth] = useState('')
   const [travelStyles, setTravelStyles] = useState<string[]>([])
 
@@ -32,8 +29,8 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
   ]
 
   const toggleTravelStyle = (style: string) => {
-    setTravelStyles(prev => 
-      prev.includes(style) 
+    setTravelStyles(prev =>
+      prev.includes(style)
         ? prev.filter(s => s !== style)
         : [...prev, style]
     )
@@ -47,49 +44,23 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={springPresets.gentle}
-      className="w-full max-w-4xl mx-auto"
-    >
-      {/* BOARDING PASS REALISTICO */}
+    <div className="w-full max-w-2xl">
       <form onSubmit={handleSubmit}>
-        <motion.div
-          whileHover={{ y: -8 }}
-          transition={springPresets.snappy}
-          className="relative bg-white dark:bg-zinc-50 rounded-2xl overflow-hidden"
+        <div
+          className="bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-[2px]"
           style={{
-            boxShadow: `
-              0 20px 60px -10px rgba(130, 29, 48, 0.3),
-              0 10px 30px -5px rgba(206, 91, 32, 0.2),
-              0 0 0 1px rgba(0,0,0,0.05)
-            `
+            boxShadow: '0 4px 24px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.03)',
           }}
         >
-          <div className="bg-[#821d30] px-4 md:px-8 py-4 md:py-5 flex flex-col md:flex-row items-center md:justify-between gap-3 md:gap-0">
-            <div className="flex items-center gap-3 md:gap-4 w-full md:w-auto">
-              <div className="flex-1 md:flex-initial">
-                <div className="text-white/80 text-xs font-heading italic">il tuo biglietto</div>
-                <div className="text-white text-lg md:text-2xl font-heading font-medium tracking-tight leading-tight">Crea il tuo viaggio.</div>
-              </div>
-            </div>
-            <div className="text-center md:text-right w-full md:w-auto">
-              <div className="text-white/70 font-mono text-xs">ed. primavera</div>
-              <div className="text-white font-mono text-sm font-medium">n. 001</div>
-            </div>
-          </div>
-
-          {/* CORPO BIGLIETTO */}
-          <div className="p-4 md:p-8 space-y-4 md:space-y-6">
-            {/* Riga 1: Periodo e Passeggeri */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div className="p-5 md:p-7 space-y-5">
+            {/* Form fields */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
               <div>
-                <Label className="text-xs text-[#595142] font-medium mb-2 block">
-                  Periodo di Viaggio
+                <Label className="text-xs text-[#595142] font-medium mb-2 block font-mono lowercase">
+                  periodo di viaggio
                 </Label>
                 <Select value={travelMonth} onValueChange={setTravelMonth}>
-                  <SelectTrigger className="h-11 md:h-12 border-2 border-zinc-300 font-mono text-sm md:text-base font-semibold bg-white">
+                  <SelectTrigger className="h-11 border border-zinc-200 text-sm bg-white rounded-xl">
                     <SelectValue placeholder="Seleziona mese" />
                   </SelectTrigger>
                   <SelectContent>
@@ -109,92 +80,78 @@ export function TicketForm({ onSubmit }: TicketFormProps) {
                 </Select>
               </div>
 
-              <div className="grid grid-cols-2 gap-3 md:gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <Label className="text-xs text-[#595142] font-medium mb-2 block">
-                    Passeggeri
-                  </Label>
+                  <Label className="text-xs text-[#595142] font-medium mb-2 block font-mono lowercase">passeggeri</Label>
                   <Input
                     type="number"
                     min="1"
                     max="20"
                     value={formData.passengers}
                     onChange={(e) => setFormData({ ...formData, passengers: parseInt(e.target.value) || 1 })}
-                    className="h-11 md:h-12 border-2 border-zinc-300 font-mono text-sm md:text-base font-semibold text-center"
+                    className="h-11 border border-zinc-200 text-sm text-center rounded-xl"
                   />
                 </div>
                 <div>
-                  <Label className="text-xs text-[#595142] font-medium mb-2 block">
-                    Tipo
-                  </Label>
+                  <Label className="text-xs text-[#595142] font-medium mb-2 block font-mono lowercase">tipo</Label>
                   <Select
                     value={formData.travelType}
-                    onValueChange={(value: 'private' | 'group_adhoc') => setFormData({ ...formData, travelType: value as any })}
+                    onValueChange={(value) => setFormData({ ...formData, travelType: value as 'private' | 'group_adhoc' })}
                   >
-                    <SelectTrigger className="h-11 md:h-12 border-2 border-zinc-300 font-mono text-xs md:text-sm font-semibold">
+                    <SelectTrigger className="h-11 border border-zinc-200 text-xs rounded-xl">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="private">Privato</SelectItem>
-                      <SelectItem value="group_adhoc">Di Gruppo Ad Hoc</SelectItem>
+                      <SelectItem value="group_adhoc">Di Gruppo</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
               </div>
             </div>
 
-            {/* Linea separatrice */}
-            <div className="border-t-2 border-dashed border-zinc-300" />
-
-            {/* Tipologie di viaggio */}
+            {/* Travel styles */}
             <div>
-              <Label className="text-xs text-[#595142] font-medium mb-2 md:mb-3 block">
-                Tipologia Viaggio (seleziona tutto ciò che ti interessa)
+              <Label className="text-xs text-[#595142] font-medium mb-3 block font-mono lowercase">
+                tipologia viaggio
               </Label>
-              <div className="flex flex-wrap gap-2 md:gap-3">
+              <div className="flex flex-wrap gap-2">
                 {travelStyleOptions.map((style) => (
                   <button
                     key={style}
                     type="button"
                     onClick={() => toggleTravelStyle(style)}
-                    className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs md:text-sm font-semibold transition-all duration-200 border whitespace-nowrap hover:scale-[1.03] active:scale-[0.97] ${
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border whitespace-nowrap transition-all duration-200 ${
                       travelStyles.includes(style)
                         ? 'bg-[#821d30] text-white border-[#821d30]'
-                        : 'bg-white text-[#595142] border-[#D8CDB5] hover:border-[#821d30] hover:text-[#821d30]'
+                        : 'bg-transparent text-[#595142] border-zinc-200 hover:border-[#821d30] hover:text-[#821d30]'
                     }`}
                   >
-                    {travelStyles.includes(style) && (
-                      <Check className="w-3.5 h-3.5" strokeWidth={2.5} />
-                    )}
+                    {travelStyles.includes(style) && <Check className="w-3 h-3" strokeWidth={2.5} />}
                     {style}
                   </button>
                 ))}
               </div>
               {travelStyles.length > 0 && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  className="mt-2 md:mt-3 text-[10px] md:text-xs text-zinc-600 font-mono bg-zinc-100 px-2 md:px-3 py-1.5 md:py-2 rounded"
-                >
-                  ✓ Selezionati: {travelStyles.join(', ')}
-                </motion.div>
+                <p className="mt-2 text-[11px] text-zinc-400 font-mono">
+                  {travelStyles.length} selezionat{travelStyles.length === 1 ? 'o' : 'i'}
+                </p>
               )}
             </div>
-          </div>
 
-          <div className="px-4 md:px-8 py-4 md:py-6 border-t border-[#D8CDB5]">
+            {/* Submit */}
             <Button
               type="submit"
               size="lg"
               disabled={!travelMonth || travelStyles.length === 0}
-              className="h-12 md:h-14 px-6 md:px-8 text-sm md:text-base font-medium bg-[#821d30] hover:bg-[#6E182A] hover:shadow-lg transition-all disabled:opacity-50 w-full rounded-full"
+              className="h-12 px-8 text-sm font-medium bg-[#821d30] hover:bg-[#6E182A] transition-all disabled:opacity-40 w-full rounded-full"
             >
-              <Plane className="w-4 h-4 md:w-5 md:h-5 mr-2" />
+              <Plane className="w-4 h-4 mr-2" />
               Trova la destinazione per me
             </Button>
           </div>
-        </motion.div>
+        </div>
       </form>
-    </motion.div>
+    </div>
   )
 }

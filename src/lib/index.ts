@@ -277,9 +277,9 @@ export const DESTINATIONS: Destination[] = [
     country: 'USA',
     coordinates: { lat: 40.71, lng: -74.01 },
     archetype: 'adventurous',
-    description: 'La citta che non dorme mai. Shopping, arte contemporanea e skyline iconico per un\'esperienza metropolitana.',
+    description: 'La città che non dorme mai. Shopping, arte contemporanea e skyline iconico per un\'esperienza metropolitana.',
     imageKey: 'NEWYORK_1',
-    highlights: ['Central Park', 'Times Square', 'Statua della Liberta'],
+    highlights: ['Central Park', 'Times Square', 'Statua della Libertà],
     tags: ['City break', 'Shopping'],
     periodo: 'Apr-Giu / Set-Nov',
     clima: 'Continentale umido',
@@ -294,7 +294,7 @@ export const DESTINATIONS: Destination[] = [
     country: 'Paesi Bassi',
     coordinates: { lat: 52.37, lng: 4.90 },
     archetype: 'adventurous',
-    description: 'Canali, biciclette e musei di fama mondiale. Una citta che si esplora meglio a piedi, senza fretta.',
+    description: 'Canali, biciclette e musei di fama mondiale. Una città che si esplora meglio a piedi, senza fretta.',
     imageKey: 'AMSTERDAM_1',
     highlights: ['Canali', 'Rijksmuseum', 'Casa di Anne Frank'],
     tags: ['City break', 'Culturale'],
@@ -362,7 +362,7 @@ export const DESTINATIONS: Destination[] = [
     country: 'Austria',
     coordinates: { lat: 48.21, lng: 16.37 },
     archetype: 'neutral',
-    description: 'Musica classica, caffe storici e architettura imperiale. Una citta che si vive con eleganza, anche senza fretta.',
+    description: 'Musica classica, caffè storici e architettura imperiale. Una città che si vive con eleganza, anche senza fretta.',
     imageKey: 'VIENNA_1',
     highlights: ['Palazzo di Schonbrunn', 'Stephansdom', 'Prater'],
     tags: ['Culturale', 'Romantica'],
@@ -379,7 +379,7 @@ export const DESTINATIONS: Destination[] = [
     country: 'Repubblica Ceca',
     coordinates: { lat: 50.08, lng: 14.42 },
     archetype: 'neutral',
-    description: 'Ponte Carlo al tramonto, birra artigianale, e una citta vecchia che sembra uscita da una fiaba gotica.',
+    description: 'Ponte Carlo al tramonto, birra artigianale, e una città vecchia che sembra uscita da una fiaba gotica.',
     imageKey: 'PRAGUE_1',
     highlights: ['Castello di Praga', 'Ponte Carlo', 'Piazza della Citta Vecchia'],
     tags: ['City break', 'Culturale'],
@@ -400,6 +400,29 @@ export interface TicketFormData {
   passengers: number;
   preferences?: string;
 }
+
+export const TEAM_MEMBERS = {
+  Michele: {
+    archetype: 'DREAMER' as const,
+    description: 'Professionista del marketing e content creator di successo, abituato a trasformare esperienze in storie da raccontare.',
+    skills: ['Marketing digitale', 'Content creation', 'Comunicazione visiva', 'Storytelling', 'Social media strategy', 'Brand identity'],
+  },
+  Anna: {
+    archetype: 'CHIC' as const,
+    description: 'Agente di viaggio e accompagnatrice turistica con anni di esperienza in Italia e all\'estero. Esperta nel costruire itinerari autentici.',
+    skills: ['Organizzazione viaggi', 'Accompagnamento turistico', 'Itinerari personalizzati', 'Logistica e pianificazione', 'Hotel di lusso', 'Problem solving'],
+  },
+  Isabel: {
+    archetype: 'STRATEGIST' as const,
+    description: 'Agente di viaggio e accompagnatrice turistica con anni di esperienza. Conosce la sottile arte di unire logistica e emozione, cultura e scoperta.',
+    skills: ['Gestione documenti e visti', 'Assicurazioni di viaggio', 'Sicurezza e logistica', 'Viaggi con animali', 'Pianificazione dettagliata', 'Problem solving'],
+  },
+  Andrea: {
+    archetype: 'ADVENTUROUS' as const,
+    description: 'Professionista del marketing e content creator di successo. Specialista nella comunicazione visiva e digitale, porta creativita e innovazione.',
+    skills: ['Content creation', 'Fotografia e video', 'Tecnologia di viaggio', 'App e strumenti digitali', 'Esplorazione luoghi insoliti', 'Innovazione'],
+  },
+} as const;
 
 export const ROUTE_PATHS = {
   HOME: '/',
